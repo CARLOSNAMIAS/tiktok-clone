@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="./styles.css">
 
   <!-- Color de barra de navegación en dispositivos Android (Chrome, Edge, etc.) -->
-  <meta name="theme-color" content="#1A1A1A">
+  <meta name="theme-color" content="#070707">
 
   <!-- Open Graph para mejorar cómo se ve al compartir -->
   <meta property="og:title" content="TikTok Clone">
@@ -31,7 +31,7 @@
             <img src="./img/carlosjose.PNG" alt="Foto de perfil">
         </div>
         <div class="texto-perfil">
-            <h3>@programador.XXI</h3>
+            <h3>@dev89</h3>
             <p>
                 <strong>2</strong>
                 <span>Following |</span>
@@ -41,7 +41,7 @@
                 <span>Likes</span>
             </p>
             <p>Aprendiz en Desarrollo Web y servicios en la nube...</p>
-            <a href="https://carlosnamias.github.io/myportafolio/"> <img src="img/enlace.svg" alt="">Mi portafolio</a>
+            <a href="https://carlosnamias.github.io/hvpf/"> <img src="img/enlace.svg" alt="">Mi portafolio</a>
         </div>
     </header>
     <nav class="nav-videos">
@@ -52,25 +52,25 @@
             <img src="img/corazon.svg" alt="Galeria" class="icono">
         </button>
     </nav>
-    <main>
-        <img src="img/nav1.png" alt="Video">
-        <img src="img/nav2.png" alt="Video">
-        <img src="img/nav3.png" alt="Video">
-        <img src="img/nav4.png" alt="Video">
-        <img src="img/nav1.png" alt="Video">
-        <img src="img/nav2.png" alt="Video">
-        <img src="img/nav3.png" alt="Video">
-        <img src="img/nav4.png" alt="Video">
-        <img src="img/nav1.png" alt="Video">
-        <img src="img/nav1.png" alt="Video">
-        <img src="img/nav2.png" alt="Video">
-        <img src="img/nav3.png" alt="Video">
-        <img src="img/nav4.png" alt="Video">
-        <img src="img/nav1.png" alt="Video">
-        <img src="img/nav2.png" alt="Video">
-        <img src="img/nav3.png" alt="Video">
-        <img src="img/nav4.png" alt="Video">
-        <img src="img/nav1.png" alt="Video">
+    <main id="imageContainer">
+        <img src="img/roma.jpg" alt="Video">
+        <img src="img/buildings-8713025_640.jpg" alt="Video">
+        <img src="img/roma.jpg" alt="Video">
+        <img src="img/buildings-8713025_640.jpg" alt="Video">
+        <img src="img/buildings-8713025_640.jpg" alt="Video">
+        <img src="img/roma.jpg" alt="Video">
+        <img src="img/buildings-8713025_640.jpg" alt="Video">
+        <img src="img/roma.jpg" alt="Video">
+        <img src="img/buildings-8713025_640.jpg" alt="Video">
+        <img src="img/buildings-8713025_640.jpg" alt="Video">
+        <img src="img/roma.jpg" alt="Video">
+        <img src="img/roma.jpg" alt="Video">
+        <img src="img/buildings-8713025_640.jpg" alt="Video">
+        <img src="img/buildings-8713025_640.jpg" alt="Video">
+        <img src="img/roma.jpg" alt="Video">
+        <img src="img/buildings-8713025_640.jpg" alt="Video">
+        <img src="img/roma.jpg" alt="Video">
+        <img src="img/roma.jpg" alt="Video">
     </main>
     <footer>
         <button class="btn-icono">
@@ -94,6 +94,23 @@
         </button>
     </footer>
 
+
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const container = document.getElementById("imageContainer");
+            const images = Array.from(container.children);
+    
+            // Mezcla aleatoriamente las imágenes (algoritmo de Fisher-Yates)
+            for (let i = images.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [images[i], images[j]] = [images[j], images[i]];
+            }
+    
+            // Vuelve a agregar las imágenes en el nuevo orden
+            images.forEach(img => container.appendChild(img));
+        });
+    </script>
+    
    
 </body>
 </html>

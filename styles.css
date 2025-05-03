@@ -2,14 +2,14 @@
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     color: #fcfcfc;
     
 }
 
 
 body {
-    background-color: #1A1A1A;
+    background-color: #070707;
 }
 
 .titulo {
@@ -18,7 +18,7 @@ body {
    
     position: fixed;
     top: 0;
-    background-color: #1A1A1A;
+    background-color: #070707;
     width: 100%;
 }
 .titulo button {
@@ -34,7 +34,7 @@ header {
     display: flex;
     padding: 10px;
     margin-top: 40px;
-    background-color: #1A1A1A;
+    background-color: #070707;
 }
 
 header div img {
@@ -59,7 +59,7 @@ header div img {
 }
 
 .texto-perfil a {
-    color: red;
+    color: rgb(255, 255, 255);
     text-decoration: none;
 }
 
@@ -103,7 +103,7 @@ main img {
 footer {
     position: fixed;
     bottom: 0;
-    background-color: #1A1A1A;
+    background-color: #070707;
     width: 100%;
     display: flex;
     justify-content: space-around;
