@@ -9,7 +9,7 @@
 
 
 body {
-    background-color: #070707;
+    background-color: #131313;
 }
 
 .titulo {
@@ -18,7 +18,7 @@ body {
    
     position: fixed;
     top: 0;
-    background-color: #070707;
+    background-color: #131313;
     width: 100%;
 }
 .titulo button {
@@ -34,7 +34,7 @@ header {
     display: flex;
     padding: 10px;
     margin-top: 40px;
-    background-color: #070707;
+    background-color: #131313;
 }
 
 header div img {
@@ -103,7 +103,7 @@ main img {
 footer {
     position: fixed;
     bottom: 0;
-    background-color: #070707;
+    background-color: #131313;
     width: 100%;
     display: flex;
     justify-content: space-around;
