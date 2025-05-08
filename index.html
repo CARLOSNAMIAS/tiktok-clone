@@ -54,7 +54,8 @@
         </button>
     </nav>
     <main id="imageContainer"></main>
-<div id="loading" style="text-align: center; display: none;">Cargando...</div>
+<div id="loading" class="loading">Cargando...</div>
+
     <footer>
         <button class="btn-icono">
             <img src="img/home.svg" alt="Home" class="icono">
@@ -78,7 +79,7 @@
     </footer>
 
 <script>
-  // Lista de imágenes (basada en las que tenías en el HTML)
+  // Lista de imágenes
   const contentList = [
     'img/paseo.jpg',
     'img/buildings-8713025_640.jpg',
@@ -89,45 +90,71 @@
   ];
 
   let currentIndex = 0;
-  const itemsPerLoad = 6; // Número de imágenes por carga
+  const itemsPerLoad = 6;
   const container = document.getElementById('imageContainer');
   const loading = document.getElementById('loading');
 
+  // Verificar que los elementos existan
+  if (!container || !loading) {
+    console.error('Error: #imageContainer o #loading no encontrados en el DOM');
+    return;
+  }
+
   // Función para cargar imágenes
   function loadMoreContent() {
-    loading.style.display = 'block'; // Mostrar "Cargando..."
-    setTimeout(() => { // Simular retraso de carga (puedes quitarlo)
+    console.log('Cargando más contenido...');
+    loading.style.display = 'block';
+
+    try {
       for (let i = 0; i < itemsPerLoad; i++) {
-        // Si llegamos al final de la lista, reiniciamos
         if (currentIndex >= contentList.length) {
           currentIndex = 0; // Repetir lista
         }
         const img = document.createElement('img');
         img.src = contentList[currentIndex];
         img.alt = 'Video';
-        img.loading = 'lazy'; // Optimizar carga
+        img.loading = 'lazy';
+        img.onerror = () => console.error(`Error al cargar imagen: ${img.src}`);
+        img.onload = () => console.log(`Imagen cargada: ${img.src}`);
         container.appendChild(img);
         currentIndex++;
       }
       loading.style.display = 'none';
-    }, 1000); // Retraso simulado de 1 segundo
+      console.log('Contenido cargado, currentIndex:', currentIndex);
+    } catch (error) {
+      console.error('Error en loadMoreContent:', error);
+      loading.style.display = 'none';
+      loading.textContent = 'Error al cargar contenido';
+    }
   }
 
   // Cargar contenido inicial
+  console.log('Cargando contenido inicial...');
   loadMoreContent();
 
-  // Configurar IntersectionObserver para detectar el final del contenedor
+  // Configurar IntersectionObserver
   const observer = new IntersectionObserver(
     (entries) => {
       if (entries[0].isIntersecting) {
+        console.log('IntersectionObserver disparado');
         loadMoreContent();
       }
     },
-    { threshold: 0.1 } // Dispara cuando el 10% del elemento es visible
+    { threshold: 0.1, rootMargin: '200px' }
   );
 
-  // Observar el elemento de "carga"
+  // Observar el elemento de carga
   observer.observe(loading);
+
+  // Mezclar imágenes aleatoriamente al inicio
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+  shuffleArray(contentList);
 </script>
     
     
