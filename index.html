@@ -78,85 +78,22 @@
         </button>
     </footer>
 
-<script>
-  // Lista de imágenes
-  const contentList = [
-    'img/paseo.jpg',
-    'img/buildings-8713025_640.jpg',
-    'img/ring-necked-parakeet-9560513_640.jpg',
-    'img/good-morning-8097091_640.jpg',
-    'img/roma.jpg',
-    'img/iglesia.jpg'
-  ];
 
-  let currentIndex = 0;
-  const itemsPerLoad = 6;
-  const container = document.getElementById('imageContainer');
-  const loading = document.getElementById('loading');
-
-  // Verificar que los elementos existan
-  if (!container || !loading) {
-    console.error('Error: #imageContainer o #loading no encontrados en el DOM');
-    return;
-  }
-
-  // Función para cargar imágenes
-  function loadMoreContent() {
-    console.log('Cargando más contenido...');
-    loading.style.display = 'block';
-
-    try {
-      for (let i = 0; i < itemsPerLoad; i++) {
-        if (currentIndex >= contentList.length) {
-          currentIndex = 0; // Repetir lista
-        }
-        const img = document.createElement('img');
-        img.src = contentList[currentIndex];
-        img.alt = 'Video';
-        img.loading = 'lazy';
-        img.onerror = () => console.error(`Error al cargar imagen: ${img.src}`);
-        img.onload = () => console.log(`Imagen cargada: ${img.src}`);
-        container.appendChild(img);
-        currentIndex++;
-      }
-      loading.style.display = 'none';
-      console.log('Contenido cargado, currentIndex:', currentIndex);
-    } catch (error) {
-      console.error('Error en loadMoreContent:', error);
-      loading.style.display = 'none';
-      loading.textContent = 'Error al cargar contenido';
-    }
-  }
-
-  // Cargar contenido inicial
-  console.log('Cargando contenido inicial...');
-  loadMoreContent();
-
-  // Configurar IntersectionObserver
-  const observer = new IntersectionObserver(
-    (entries) => {
-      if (entries[0].isIntersecting) {
-        console.log('IntersectionObserver disparado');
-        loadMoreContent();
-      }
-    },
-    { threshold: 0.1, rootMargin: '200px' }
-  );
-
-  // Observar el elemento de carga
-  observer.observe(loading);
-
-  // Mezclar imágenes aleatoriamente al inicio
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
-  shuffleArray(contentList);
-</script>
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const container = document.getElementById("imageContainer");
+            const images = Array.from(container.children);
     
+            // Mezcla aleatoriamente las imágenes (algoritmo de Fisher-Yates)
+            for (let i = images.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [images[i], images[j]] = [images[j], images[i]];
+            }
+    
+            // Vuelve a agregar las imágenes en el nuevo orden
+            images.forEach(img => container.appendChild(img));
+        });
+    </script>
     
    
 </body>
