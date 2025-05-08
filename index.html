@@ -53,26 +53,8 @@
             <img src="img/corazon.svg" alt="Galeria" class="icono">
         </button>
     </nav>
-    <main id="imageContainer">
-        <img src="img/paseo.jpg" alt="Video">
-        <img src="img/buildings-8713025_640.jpg" alt="Video">
-        <img src="img/ring-necked-parakeet-9560513_640.jpg" alt="Video">
-        <img src="img/buildings-8713025_640.jpg" alt="Video">
-        <img src="img/good-morning-8097091_640.jpg" alt="Video">
-        <img src="img/roma.jpg" alt="Video">
-        <img src="img/buildings-8713025_640.jpg" alt="Video">
-        <img src="img/paseo.jpg" alt="Video">
-        <img src="img/good-morning-8097091_640.jpg" alt="Video">
-        <img src="img/buildings-8713025_640.jpg" alt="Video">
-        <img src="img/iglesia.jpg" alt="Video">
-        <img src="img/roma.jpg" alt="Video">
-        <img src="img/good-morning-8097091_640.jpg" alt="Video">
-        <img src="img/buildings-8713025_640.jpg" alt="Video">
-        <img src="img/roma.jpg" alt="Video">
-        <img src="img/buildings-8713025_640.jpg" alt="Video">
-        <img src="img/roma.jpg" alt="Video">
-        <img src="img/ring-necked-parakeet-9560513_640.jpg" alt="Video">
-    </main>
+    <main id="imageContainer"></main>
+<div id="loading" style="text-align: center; display: none;">Cargando...</div>
     <footer>
         <button class="btn-icono">
             <img src="img/home.svg" alt="Home" class="icono">
@@ -95,22 +77,59 @@
         </button>
     </footer>
 
+<script>
+  // Lista de imágenes (basada en las que tenías en el HTML)
+  const contentList = [
+    'img/paseo.jpg',
+    'img/buildings-8713025_640.jpg',
+    'img/ring-necked-parakeet-9560513_640.jpg',
+    'img/good-morning-8097091_640.jpg',
+    'img/roma.jpg',
+    'img/iglesia.jpg'
+  ];
 
-    <script>
-        window.addEventListener("DOMContentLoaded", () => {
-            const container = document.getElementById("imageContainer");
-            const images = Array.from(container.children);
+  let currentIndex = 0;
+  const itemsPerLoad = 6; // Número de imágenes por carga
+  const container = document.getElementById('imageContainer');
+  const loading = document.getElementById('loading');
+
+  // Función para cargar imágenes
+  function loadMoreContent() {
+    loading.style.display = 'block'; // Mostrar "Cargando..."
+    setTimeout(() => { // Simular retraso de carga (puedes quitarlo)
+      for (let i = 0; i < itemsPerLoad; i++) {
+        // Si llegamos al final de la lista, reiniciamos
+        if (currentIndex >= contentList.length) {
+          currentIndex = 0; // Repetir lista
+        }
+        const img = document.createElement('img');
+        img.src = contentList[currentIndex];
+        img.alt = 'Video';
+        img.loading = 'lazy'; // Optimizar carga
+        container.appendChild(img);
+        currentIndex++;
+      }
+      loading.style.display = 'none';
+    }, 1000); // Retraso simulado de 1 segundo
+  }
+
+  // Cargar contenido inicial
+  loadMoreContent();
+
+  // Configurar IntersectionObserver para detectar el final del contenedor
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting) {
+        loadMoreContent();
+      }
+    },
+    { threshold: 0.1 } // Dispara cuando el 10% del elemento es visible
+  );
+
+  // Observar el elemento de "carga"
+  observer.observe(loading);
+</script>
     
-            // Mezcla aleatoriamente las imágenes (algoritmo de Fisher-Yates)
-            for (let i = images.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [images[i], images[j]] = [images[j], images[i]];
-            }
-    
-            // Vuelve a agregar las imágenes en el nuevo orden
-            images.forEach(img => container.appendChild(img));
-        });
-    </script>
     
    
 </body>
