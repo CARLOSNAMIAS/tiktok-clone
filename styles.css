@@ -139,21 +139,21 @@ footer button img {
 }
 
 footer button p {
-  font-size: 10px;
+font-size: 10px;
 }
 
 .btn-icono {
-  background: none;
-  border: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;
-  cursor: pointer;
+background: none;
+border: none;
+display: flex;
+flex-direction: column;
+align-items: center;
+color: white;
+cursor: pointer;
 }
 
 .btn-icono .icono {
-  filter: brightness(0) invert(1);
-  width: 24px;
-  height: 24px;
+filter: brightness(0) invert(1);
+width: 24px;
+height: 24px;
 }
