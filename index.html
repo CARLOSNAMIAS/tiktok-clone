@@ -1,24 +1,25 @@
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TikTok Clone</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Clone</title>
 
-  <!-- Ícono del sitio -->
-  
-  <link rel="icon" type="image/png" href="img/tk.PNG">
+    <!-- Ícono del sitio -->
 
-  <!-- Estilos principales -->
-  <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" type="image/png" href="img/tk.PNG">
 
-  <!-- Color de barra de navegación en dispositivos Android (Chrome, Edge, etc.) -->
-  <meta name="theme-color" content="#131313">
+    <!-- Estilos principales -->
+    <link rel="stylesheet" href="./styles.css">
 
-  <!-- Open Graph para mejorar cómo se ve al compartir -->
-  <meta property="og:title" content="TikTok Clone">
-  <meta property="og:description" content="Clon educativo de TikTok en modo oscuro">
-  <meta property="og:image" content="/img/log.PNG">
-  <meta property="og:type" content="website">
+    <!-- Color de barra de navegación en dispositivos Android (Chrome, Edge, etc.) -->
+    <meta name="theme-color" content="#131313">
+
+    <!-- Open Graph para mejorar cómo se ve al compartir -->
+    <meta property="og:title" content="TikTok Clone">
+    <meta property="og:description" content="Clon educativo de TikTok en modo oscuro">
+    <meta property="og:image" content="/img/log.PNG">
+    <meta property="og:type" content="website">
 </head>
 
 <body>
@@ -73,25 +74,30 @@
         <img src="img/ring-necked-parakeet-9560513_640.jpg" alt="Video">
     </main>
     <footer>
-        <button class="btn-icono">
+        <button class="btn-icono" data-view="home">
             <img src="img/home.svg" alt="Home" class="icono">
             <p>Home</p>
         </button>
-        <button class="btn-icono">
+        <button class="btn-icono" data-view="discover">
             <img src="img/discover.svg" alt="Discover" class="icono">
             <p>Discover</p>
         </button>
-        <button>
-            <img class="tiktok" src="img/tiktok.svg" alt="Home" >
+        <button id="btnCamara">
+            <img class="tiktok" src="img/tiktok.svg" alt="Upload">
         </button>
-        <button class="btn-icono">
+        <input type="file" accept="image/*" capture="environment" id="inputCamara" class="oculto"
+            aria-label="Abrir cámara">
+
+
+        <button class="btn-icono" data-view="inbox">
             <img src="img/inbox.svg" alt="Inbox" class="icono">
             <p>Inbox</p>
         </button>
-        <button class="btn-icono">
+        <button class="btn-icono" data-view="profile">
             <img src="img/profile.svg" alt="Profile" class="icono">
             <p>Profile</p>
         </button>
+
     </footer>
 
 
@@ -99,18 +105,69 @@
         window.addEventListener("DOMContentLoaded", () => {
             const container = document.getElementById("imageContainer");
             const images = Array.from(container.children);
-    
+
             // Mezcla aleatoriamente las imágenes (algoritmo de Fisher-Yates)
             for (let i = images.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [images[i], images[j]] = [images[j], images[i]];
             }
-    
+
             // Vuelve a agregar las imágenes en el nuevo orden
             images.forEach(img => container.appendChild(img));
         });
+
+
+
+
+        //funcionalidad de los botones de la barra de navegación
+        document.querySelectorAll('[data-view]').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const view = e.currentTarget.dataset.view;
+
+                switch (view) {
+                    case 'home':
+                        window.location.href = ' home.html';
+                        break;
+                    case 'discover':
+                        window.location.href = 'discover.html';
+                        break;
+                    case 'upload':
+                        window.location.href = 'upload.html';
+                        break;
+                    case 'inbox':
+                        window.location.href = 'inbox.html';
+                        break;
+                    case 'profile':
+                        window.location.href = 'profile.html';
+                        break;
+                    default:
+                        console.log("En construcción 🧑🏽‍💻🔥");
+                }
+            });
+        });
+
+
+
+
+
+        // abrir la cámara al hacer clic en el botón de la cámara
+        const btnCamara = document.getElementById('btnCamara');
+        const inputCamara = document.getElementById('inputCamara');
+
+        btnCamara.addEventListener('click', () => {
+            inputCamara.click();
+        });
+
+        inputCamara.addEventListener('change', (e) => {
+            const archivo = e.target.files[0];
+            if (archivo) {
+                console.log("Imagen tomada:", archivo.name);
+                // Aquí podrías mostrar una vista previa o subirla
+            }
+        });
     </script>
-    
-   
+
+
 </body>
+
 </html>

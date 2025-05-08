@@ -31,7 +31,7 @@ body {
 
 header {
   display: flex;
-  padding: 10px;
+  padding: 20px;
   margin-top: 40px;
   background-color: #131313;
 }
@@ -70,6 +70,7 @@ header div img {
   border-bottom: 1px solid rgb(224, 224, 224);
   display: flex;
   justify-content: space-around;
+  
 }
 
 .nav-videos button {
@@ -88,23 +89,35 @@ header div img {
   height: 18px;
 }
 
+main img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+
+
+
+
+
 main {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  padding: 15px;
-  min-height: 100vh; /* Asegura espacio para scroll */
-  margin-bottom: 60px; /* Espacio para el footer fijo */
+    
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
 }
 
 main img {
   width: 100%;
-  max-width: 600px;
-  height: auto;
+  aspect-ratio: 9 / 16; /* proporción vertical como videos */
   object-fit: cover;
-  border-radius: 8px;
   display: block;
+  border-radius: 1px;
 }
+
+
+
 
 .loading {
   padding: 20px;
@@ -157,3 +170,11 @@ filter: brightness(0) invert(1);
 width: 24px;
 height: 24px;
 }
+
+/*open camara*/
+.oculto {
+  display: none;
+}
+
+
+
