@@ -1,4 +1,5 @@
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,7 @@
     <link rel="stylesheet" href="./styles.css">
 
     <!-- Color de barra de navegación en dispositivos Android (Chrome, Edge, etc.) -->
-    <meta name="theme-color" content="#131313">
+    <meta name="theme-color" content="#000000">
 
     <!-- Open Graph para mejorar cómo se ve al compartir -->
     <meta property="og:title" content="TikTok Clone">
@@ -22,6 +23,12 @@
 </head>
 
 <body>
+
+    <!-- Pantalla de carga tipo TikTok -->
+    <div id="splash-screen">
+        <img src="img/tk.PNG" alt="Logo TikTok" class="logo">
+    </div>
+
     <nav class="titulo">
         <h1>tiktok</h1>
         <button>...</button>
@@ -159,6 +166,27 @@
                 // Aquí podrías mostrar una vista previa o subirla
             }
         });
+
+
+
+
+// Pantalla de carga
+       window.addEventListener("load", () => {
+    setTimeout(() => {
+      const splash = document.getElementById("splash-screen");
+      splash.style.opacity = 0;
+      splash.style.transition = "opacity 0.5s ease-out";
+      setTimeout(() => splash.style.display = "none", 500);
+    }, 2000); // 2 segundos
+  });
+
+
+
+
+
+
+
+
     </script>
 
 

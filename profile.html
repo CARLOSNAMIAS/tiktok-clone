@@ -5,8 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil - TikTok Clone</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="img/tk.PNG">
+    <link rel="stylesheet" href="./styles.css">
+    <!-- Color de barra de navegación en dispositivos Android (Chrome, Edge, etc.) -->
+    <meta name="theme-color" content="#000000">
+
 </head>
+
 
 
 <body>
@@ -48,21 +53,26 @@
         <!-- Footer de navegación -->
         <footer>
             <button class="btn-icono" data-view="home">
-                <img src="img/home.svg" alt="Home" class="icono">
-                <p>Home</p>
-            </button>
-            <button class="btn-icono" data-view="discover">
-                <img src="img/discover.svg" alt="Discover" class="icono">
-                <p>Discover</p>
-            </button>
-            <button class="btn-icono" data-view="inbox">
-                <img src="img/inbox.svg" alt="Inbox" class="icono">
-                <p>Inbox</p>
-            </button>
-            <button class="btn-icono" data-view="profile">
-                <img src="img/profile.svg" alt="Profile" class="icono">
-                <p>Profile</p>
-            </button>
+            <img src="img/home.svg" alt="Home" class="icono">
+            <p>Home</p>
+        </button>
+        <button class="btn-icono" data-view="discover">
+            <img src="img/discover.svg" alt="Discover" class="icono">
+            <p>Discover</p>
+        </button>
+        <button id="btnCamara">
+            <img class="tiktok" src="img/tiktok.svg" alt="Upload">
+        </button>
+        <input type="file" accept="image/*" capture="environment" id="inputCamara" class="oculto"
+            aria-label="Abrir cámara">
+        <button class="btn-icono" data-view="inbox">
+            <img src="img/inbox.svg" alt="Inbox" class="icono">
+            <p>Inbox</p>
+        </button>
+        <button class="btn-icono" data-view="profile">
+            <img src="img/profile.svg" alt="Profile" class="icono">
+            <p>Profile</p>
+        </button>
         </footer>
     </div>
 </body>
