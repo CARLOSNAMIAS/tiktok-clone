@@ -1,195 +1,246 @@
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TikTok Clone</title>
-
-    <!-- Ícono del sitio -->
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clon TikTok</title>
     <link rel="icon" type="image/png" href="img/tk.PNG">
-
-    <!-- Estilos principales -->
     <link rel="stylesheet" href="./styles.css">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Color de barra de navegación en dispositivos Android (Chrome, Edge, etc.) -->
-    <meta name="theme-color" content="#000000">
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-    <!-- Open Graph para mejorar cómo se ve al compartir -->
-    <meta property="og:title" content="TikTok Clone">
-    <meta property="og:description" content="Clon educativo de TikTok en modo oscuro">
-    <meta property="og:image" content="/img/log.PNG">
-    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#000000">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background: black;
+            color: white;
+            overflow: hidden;
+        }
+
+        .video-container {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sidebar {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+        }
+
+        .video-info {
+            position: absolute;
+            bottom: 50px;
+            left: 15px;
+        }
+
+
+
+
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+
+        .topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0px;
+            background-color: rgba(0, 0, 0, 0);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+            z-index: 10000;
+            color: white;
+            font-family: sans-serif;
+        }
+
+        .nav-textos a {
+            margin-right: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            opacity: 0.7;
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-textos a:hover {
+            opacity: 1;
+        }
+
+        .nav-textos a.activo {
+            font-weight: bold;
+            opacity: 1;
+        }
+
+
+        .icono-busqueda {
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        #topbar {
+            display: none;
+            /* Oculto al inicio */
+        }
+
+
+        a.btn-icono {
+            text-decoration: none;
+            /* ✅ Elimina el subrayado */
+            color: white;
+            /* Asegura que el color del texto sea blanco */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+
+        .icono-busqueda {
+            font-size: 26px;
+            /* tamaño del ícono */
+            color: white;
+            /* o el color que desees */
+            cursor: pointer;
+            margin: 10px;
+        }
+    </style>
 </head>
 
 <body>
 
+    <header class="topbar" id="topbar">
+        <div class="nav-textos">
+            <a href="profile.html" class="activo">Perfil</a>
+            <a href="discover.html">Explorar</a>
+            <a href="#">Siguiendo</a>
+            <a href="#">Para ti</a>
+        </div>
+        <div class="icono-busqueda">
+            <i class="bi bi-search"></i>
+        </div>
+
+    </header>
+
+
+
     <!-- Pantalla de carga tipo TikTok -->
     <div id="splash-screen">
-        <img src="img/tk.PNG" alt="Logo TikTok" class="logo">
+        <img src="img/logo-TKTK.png" alt="Logo TikTok" class="logo">
     </div>
 
-    <nav class="titulo">
-        <h1>tiktok</h1>
-        <button>...</button>
-    </nav>
-    <header>
-        <div>
-            <img src="./img/carlos.png" alt="Foto de perfil">
+    <div class="video-container">
+
+       <video autoplay muted loop>
+            <source src="/videos/paseoo.mp4" type="video/mp4">
+            Tu navegador no soporta video.
+        </video>
+
+        <div class="sidebar">
+            <button>&hearts;</button>
+            <button>&#128172;</button>
+            <button>&#10150;</button>
         </div>
-        <div class="texto-perfil">
-            <h3>@dev89</h3>
-            <p>
-                <strong>2</strong>
-                <span>Following |</span>
-                <strong>100</strong>
-                <span>Followers |</span>
-                <strong>100k</strong>
-                <span>Likes</span>
-            </p>
-            <p>Aprendiz en Desarrollo Web y servicios en la nube...</p>
-            <a href="https://carlosnamias.github.io/hvpf/"> <img src="img/enlace.svg" alt="">Mi portafolio</a>
+
+        <div class="video-info">
+            <strong>@usuario</strong>
+            <p>Descripción del video con #hashtags</p>
         </div>
-    </header>
-    <nav class="nav-videos">
-        <button class="btn-icono">
-            <img src="img/galeria.svg" alt="Galeria" class="icono">
-        </button>
-        <button class="btn-icono">
-            <img src="img/corazon.svg" alt="Galeria" class="icono">
-        </button>
-    </nav>
-    <main id="imageContainer">
-        <img src="img/paseo.jpg" alt="Video">
-        <img src="img/buildings-8713025_640.jpg" alt="Video">
-        <img src="img/ring-necked-parakeet-9560513_640.jpg" alt="Video">
-        <img src="img/buildings-8713025_640.jpg" alt="Video">
-        <img src="img/good-morning-8097091_640.jpg" alt="Video">
-        <img src="img/roma.jpg" alt="Video">
-        <img src="img/buildings-8713025_640.jpg" alt="Video">
-        <img src="img/paseo.jpg" alt="Video">
-        <img src="img/good-morning-8097091_640.jpg" alt="Video">
-        <img src="img/buildings-8713025_640.jpg" alt="Video">
-        <img src="img/iglesia.jpg" alt="Video">
-        <img src="img/roma.jpg" alt="Video">
-        <img src="img/good-morning-8097091_640.jpg" alt="Video">
-        <img src="img/buildings-8713025_640.jpg" alt="Video">
-        <img src="img/roma.jpg" alt="Video">
-        <img src="img/buildings-8713025_640.jpg" alt="Video">
-        <img src="img/roma.jpg" alt="Video">
-        <img src="img/ring-necked-parakeet-9560513_640.jpg" alt="Video">
-    </main>
+    </div>
+
     <footer>
-        <button class="btn-icono" data-view="home">
+        <a href="index.html" class="btn-icono">
             <img src="img/home.svg" alt="Home" class="icono">
             <p>Home</p>
-        </button>
-        <button class="btn-icono" data-view="discover">
+        </a>
+
+        <a href="discover.html" class="btn-icono">
             <img src="img/discover.svg" alt="Discover" class="icono">
             <p>Discover</p>
-        </button>
+        </a>
+
+        <!-- El botón de cámara mantiene funcionalidad especial, no se cambia -->
         <button id="btnCamara">
             <img class="tiktok" src="img/tiktok.svg" alt="Upload">
         </button>
         <input type="file" accept="image/*" capture="environment" id="inputCamara" class="oculto"
             aria-label="Abrir cámara">
-        <button class="btn-icono" data-view="inbox">
+
+        <a href="inbox.html" class="btn-icono">
             <img src="img/inbox.svg" alt="Inbox" class="icono">
             <p>Inbox</p>
-        </button>
-        <button class="btn-icono" data-view="profile">
+        </a>
+
+        <a href="profile.html" class="btn-icono">
             <img src="img/profile.svg" alt="Profile" class="icono">
             <p>Profile</p>
-        </button>
-
+        </a>
     </footer>
 
 
+
     <script>
-        window.addEventListener("DOMContentLoaded", () => {
-            const container = document.getElementById("imageContainer");
-            const images = Array.from(container.children);
+        // Pantalla de carga
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                const splash = document.getElementById("splash-screen");
+                const topbar = document.getElementById("topbar");
 
-            // Mezcla aleatoriamente las imágenes (algoritmo de Fisher-Yates)
-            for (let i = images.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [images[i], images[j]] = [images[j], images[i]];
-            }
+                splash.style.opacity = 0;
+                splash.style.transition = "opacity 0.5s ease-out";
 
-            // Vuelve a agregar las imágenes en el nuevo orden
-            images.forEach(img => container.appendChild(img));
+                setTimeout(() => {
+                    splash.style.display = "none";
+                    topbar.style.display = "flex"; // Mostrar barra superior
+                }, 500);
+            }, 2000); // 2 segundos
         });
-
-        //funcionalidad de los botones de la barra de navegación
-        document.querySelectorAll('[data-view]').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const view = e.currentTarget.dataset.view;
-
-                switch (view) {
-                    case 'home':
-                        window.location.href = ' home.html';
-                        break;
-                    case 'discover':
-                        window.location.href = 'discover.html';
-                        break;
-                    case 'upload':
-                        window.location.href = 'upload.html';
-                        break;
-                    case 'inbox':
-                        window.location.href = 'inbox.html';
-                        break;
-                    case 'profile':
-                        window.location.href = 'profile.html';
-                        break;
-                    default:
-                        console.log("En construcción 🧑🏽‍💻🔥");
-                }
-            });
-        });
-
-
-
-
-
-        // abrir la cámara al hacer clic en el botón de la cámara
-        const btnCamara = document.getElementById('btnCamara');
-        const inputCamara = document.getElementById('inputCamara');
-
-        btnCamara.addEventListener('click', () => {
-            inputCamara.click();
-        });
-
-        inputCamara.addEventListener('change', (e) => {
-            const archivo = e.target.files[0];
-            if (archivo) {
-                console.log("Imagen tomada:", archivo.name);
-                // Aquí podrías mostrar una vista previa o subirla
-            }
-        });
-
-
-
-
-// Pantalla de carga
-       window.addEventListener("load", () => {
-    setTimeout(() => {
-      const splash = document.getElementById("splash-screen");
-      splash.style.opacity = 0;
-      splash.style.transition = "opacity 0.5s ease-out";
-      setTimeout(() => splash.style.display = "none", 500);
-    }, 2000); // 2 segundos
-  });
-
-
-
-
-
-
 
 
     </script>
-
-
 </body>
 
 </html>

@@ -134,7 +134,7 @@ footer {
   width: 100%;
   display: flex;
   justify-content: space-around;
-  padding: 10px 0;
+  padding: 3px 0;
   z-index: 10;
 }
 
@@ -263,6 +263,8 @@ height: 24px;
       object-fit: cover;
   }
   
+
+
   /* Splash screen */
 #splash-screen {
   background-color: black;
@@ -278,7 +280,7 @@ height: 24px;
 }
 
 #splash-screen .logo {
-  width: 100px;
+  width: 150px;
   animation: fadeIn 1.5s ease-in-out;
 }
 

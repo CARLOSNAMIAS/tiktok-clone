@@ -1,80 +1,178 @@
 <!DOCTYPE html>
 <html lang="es">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil - TikTok Clone</title>
+    <title>TikTok Clone</title>
+
+    <!-- Ícono del sitio -->
+
     <link rel="icon" type="image/png" href="img/tk.PNG">
+
+    <!-- Estilos principales -->
     <link rel="stylesheet" href="./styles.css">
+
     <!-- Color de barra de navegación en dispositivos Android (Chrome, Edge, etc.) -->
     <meta name="theme-color" content="#000000">
 
+    <!-- Open Graph para mejorar cómo se ve al compartir -->
+    <meta property="og:title" content="TikTok Clone">
+    <meta property="og:description" content="Clon educativo de TikTok en modo oscuro">
+    <meta property="og:image" content="/img/log.PNG">
+    <meta property="og:type" content="website">
 </head>
 
-
-
 <body>
-    <div class="profile-container">
-        <!-- Barra de navegación -->
-        <nav class="navbar">
-            <button class="back-btn">⟵</button>
-            <h1>TikTok Clone</h1>
-        </nav>
 
-        <!-- Información de usuario -->
-        <section class="profile-info">
-            <div class="profile-pic">
-                <img src="img/carlos.png" alt="Foto de perfil">
-            </div>
-            <div class="profile-details">
-                <h2>@dev89</h2>
-                <p>
-                    <strong>100</strong> Seguidores |
-                    <strong>150</strong> Siguiendo |
-                    <strong>2K</strong> Likes
-                </p>
-                <p>Aprendiz en Desarrollo Web y Servicios en la Nube...</p>
-                <a href="https://carlosnamias.github.io/hvpf/">Mi Portafolio</a>
-            </div>
-        </section>
 
-        <!-- Publicaciones -->
-        <section class="profile-posts">
-            <h3>Publicaciones</h3>
-            <div class="posts-container">
-                <img src="img/paseo.jpg" alt="Video 1" class="post-img">
-                <img src="img/roma.jpg" alt="Video 2" class="post-img">
-                <img src="img/good-morning-8097091_640.jpg" alt="Video 3" class="post-img">
-                <img src="img/iglesia.jpg" alt="Video 4" class="post-img">
-            </div>
-        </section>
+    <nav class="titulo">
+        <h1>tiktok</h1>
+        <button>...</button>
+    </nav>
+    <header>
+        <div>
+            <img src="./img/carlos.png" alt="Foto de perfil">
+        </div>
+        <div class="texto-perfil">
+            <h3>@dev89</h3>
+            <p>
+                <strong>2</strong>
+                <span>Following |</span>
+                <strong>100</strong>
+                <span>Followers |</span>
+                <strong>100k</strong>
+                <span>Likes</span>
+            </p>
+            <p>Aprendiz en Desarrollo Web y servicios en la nube...</p>
+            <a href="https://carlosnamias.github.io/hvpf/"> <img src="img/enlace.svg" alt="">Mi portafolio</a>
+        </div>
+    </header>
+    <nav class="nav-videos">
+        <button class="btn-icono">
+            <img src="img/galeria.svg" alt="Galeria" class="icono">
+        </button>
+        <button class="btn-icono">
+            <img src="img/corazon.svg" alt="Galeria" class="icono">
+        </button>
+    </nav>
+    <main id="imageContainer">
+        <img src="img/paseo.jpg" alt="Video">
+        <img src="img/buildings-8713025_640.jpg" alt="Video">
+        <img src="img/ring-necked-parakeet-9560513_640.jpg" alt="Video">
+        <img src="img/buildings-8713025_640.jpg" alt="Video">
+        <img src="img/good-morning-8097091_640.jpg" alt="Video">
+        <img src="img/roma.jpg" alt="Video">
+        <img src="img/buildings-8713025_640.jpg" alt="Video">
+        <img src="img/paseo.jpg" alt="Video">
+        <img src="img/good-morning-8097091_640.jpg" alt="Video">
+        <img src="img/buildings-8713025_640.jpg" alt="Video">
+        <img src="img/iglesia.jpg" alt="Video">
+        <img src="img/roma.jpg" alt="Video">
+        <img src="img/good-morning-8097091_640.jpg" alt="Video">
+        <img src="img/buildings-8713025_640.jpg" alt="Video">
+        <img src="img/roma.jpg" alt="Video">
+        <img src="img/buildings-8713025_640.jpg" alt="Video">
+        <img src="img/roma.jpg" alt="Video">
+        <img src="img/ring-necked-parakeet-9560513_640.jpg" alt="Video">
+    </main>
 
-        <!-- Footer de navegación -->
-        <footer>
-            <button class="btn-icono" data-view="home">
+    <footer>
+        <a href="index.html" class="btn-icono">
             <img src="img/home.svg" alt="Home" class="icono">
             <p>Home</p>
-        </button>
-        <button class="btn-icono" data-view="discover">
+        </a>
+
+        <a href="discover.html" class="btn-icono">
             <img src="img/discover.svg" alt="Discover" class="icono">
             <p>Discover</p>
-        </button>
+        </a>
+
+        <!-- El botón de cámara mantiene funcionalidad especial, no se cambia -->
         <button id="btnCamara">
             <img class="tiktok" src="img/tiktok.svg" alt="Upload">
         </button>
         <input type="file" accept="image/*" capture="environment" id="inputCamara" class="oculto"
             aria-label="Abrir cámara">
-        <button class="btn-icono" data-view="inbox">
+
+        <a href="inbox.html" class="btn-icono">
             <img src="img/inbox.svg" alt="Inbox" class="icono">
             <p>Inbox</p>
-        </button>
-        <button class="btn-icono" data-view="profile">
+        </a>
+
+        <a href="profile.html" class="btn-icono">
             <img src="img/profile.svg" alt="Profile" class="icono">
             <p>Profile</p>
-        </button>
-        </footer>
-    </div>
+        </a>
+    </footer>
+
+
+
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const container = document.getElementById("imageContainer");
+            const images = Array.from(container.children);
+
+            // Mezcla aleatoriamente las imágenes (algoritmo de Fisher-Yates)
+            for (let i = images.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [images[i], images[j]] = [images[j], images[i]];
+            }
+
+            // Vuelve a agregar las imágenes en el nuevo orden
+            images.forEach(img => container.appendChild(img));
+        });
+
+        //funcionalidad de los botones de la barra de navegación
+        document.querySelectorAll('[data-view]').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const view = e.currentTarget.dataset.view;
+
+                switch (view) {
+                    case 'home':
+                        window.location.href = ' home.html';
+                        break;
+                    case 'discover':
+                        window.location.href = 'discover.html';
+                        break;
+                    case 'upload':
+                        window.location.href = 'upload.html';
+                        break;
+                    case 'inbox':
+                        window.location.href = 'inbox.html';
+                        break;
+                    case 'profile':
+                        window.location.href = 'profile.html';
+                        break;
+                    default:
+                        console.log("En construcción 🧑🏽‍💻🔥");
+                }
+            });
+        });
+
+
+
+
+
+        // abrir la cámara al hacer clic en el botón de la cámara
+        const btnCamara = document.getElementById('btnCamara');
+        const inputCamara = document.getElementById('inputCamara');
+
+        btnCamara.addEventListener('click', () => {
+            inputCamara.click();
+        });
+
+        inputCamara.addEventListener('change', (e) => {
+            const archivo = e.target.files[0];
+            if (archivo) {
+                console.log("Imagen tomada:", archivo.name);
+                // Aquí podrías mostrar una vista previa o subirla
+            }
+        });
+
+    </script>
+
 </body>
 
 </html>
