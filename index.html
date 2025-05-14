@@ -60,22 +60,32 @@
             display: flex;
             flex-direction: column;
             gap: 26px;
+
+
         }
 
         .sidebar button {
             background: none;
             border: none;
             color: white;
-            font-size: 26px;
             cursor: pointer;
-            transition: color 0.3s;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar button i {
+            font-size: 28px;
+        }
+
+        .sidebar .contador {
+            font-size: 14px;
+            margin-top: 4px;
+            color: white;
         }
 
 
-        .sidebar button:hover {
-            color: #ff0050;
-            transform: scale();
-        }
         .video-info {
             position: absolute;
             bottom: 50px;
@@ -198,22 +208,26 @@
         <div id="video-feed"></div>
 
         <div class="sidebar">
-            <button aria-label="Like">
+            <button>
                 <i class="bi bi-heart-fill"></i>
+                <span class="contador">1200</span>
             </button>
-            <button aria-label="Comment">
+            <button>
                 <i class="bi bi-chat-dots-fill"></i>
+                <span class="contador">180</span>
             </button>
-            <button aria-label="Share">
-                <i class="bi bi-share-fill"></i>
+            <button>
+                <i class="bi bi-bookmark-fill"></i>
+                <span class="contador">8</span>
             </button>
         </div>
 
 
 
+
         <div class="video-info">
             <strong>@usuario</strong>
-            <p>Descripción del video con #hashtags</p>
+            <p>Descripción del video con #hashtags ✈️</p>
             <p>❤️ 1000 | 💬 200 | 🔁 300</p>
         </div>
     </div>
@@ -274,7 +288,7 @@
         const API_KEY = 'mfBKfkodYK7uJ6S6bmoNa7a5S257MmkIgHGdcOwKN7dH4RUFDvbhpR1Y'; // Coloca aquí tu API Key
 
         // Puedes agregar más temas aquí:
-        const CATEGORÍAS = ['Astronomy', 'nature', 'city', 'dance', 'music', 'sports', 'Artificial Intelligence'];
+        const CATEGORÍAS = ['nature', 'city', 'dance', 'music', 'sports', 'funny', 'animals', 'food', 'travel'];
 
         const cargarVideos = (query) => {
             const API_URL = `https://api.pexels.com/videos/search?query=${query}&per_page=4`;
