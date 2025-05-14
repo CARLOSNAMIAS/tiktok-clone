@@ -23,7 +23,7 @@
             width: 100%;
             background: black;
             color: white;
-            overflow: hidden;
+            overflow: auto;
         }
 
         #video-feed {
@@ -54,12 +54,12 @@
 
         .sidebar {
             position: absolute;
-            right: 10px;
-            top: 50%;
+            right: 9px;
+            top: 60%;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            gap: 26px;
+            gap: 10px;
 
 
         }
@@ -106,8 +106,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-        }
 
+
+        }
 
 
         .topbar {
@@ -116,7 +117,7 @@
             left: 0;
             width: 100%;
             height: 0px;
-            background-color: rgba(0, 0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.6);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -125,6 +126,7 @@
             color: white;
             font-family: sans-serif;
         }
+
 
         .nav-textos a {
             margin-right: 10px;
@@ -210,15 +212,19 @@
         <div class="sidebar">
             <button>
                 <i class="bi bi-heart-fill"></i>
-                <span class="contador">1200</span>
+                <span class="contador">120.0mil</span>
             </button>
             <button>
                 <i class="bi bi-chat-dots-fill"></i>
-                <span class="contador">180</span>
+                <span class="contador">1,900</span>
             </button>
             <button>
                 <i class="bi bi-bookmark-fill"></i>
-                <span class="contador">8</span>
+                <span class="contador">8mil</span>
+            </button>
+            <button>
+                <i class="bi bi-arrow-90deg-right"></i>
+                <span class="contador">10mil</span>
             </button>
         </div>
 
@@ -226,16 +232,16 @@
 
 
         <div class="video-info">
-            <strong>@usuario</strong>
-            <p>Descripción del video con #hashtags ✈️</p>
-            <p>❤️ 1000 | 💬 200 | 🔁 300</p>
+            <strong>@Dev89</strong>
+            <p>Aventuras #travel✈️...más</p>
+
         </div>
     </div>
 
     <footer>
         <a href="index.html" class="btn-icono">
             <img src="img/home.svg" alt="Home" class="icono">
-            <p>Home</p>
+            <p>Inicio</p>
         </a>
 
         <a href="discover.html" class="btn-icono">
@@ -252,12 +258,12 @@
 
         <a href="inbox.html" class="btn-icono">
             <img src="img/inbox.svg" alt="Inbox" class="icono">
-            <p>Inbox</p>
+            <p>Mensajes</p>
         </a>
 
         <a href="profile.html" class="btn-icono">
             <img src="img/profile.svg" alt="Profile" class="icono">
-            <p>Profile</p>
+            <p>Perfil</p>
         </a>
     </footer>
 
@@ -288,7 +294,7 @@
         const API_KEY = 'mfBKfkodYK7uJ6S6bmoNa7a5S257MmkIgHGdcOwKN7dH4RUFDvbhpR1Y'; // Coloca aquí tu API Key
 
         // Puedes agregar más temas aquí:
-        const CATEGORÍAS = ['nature', 'city', 'dance', 'music', 'sports', 'funny', 'animals', 'food', 'travel'];
+        const CATEGORÍAS = ['nature', 'city', 'dance', 'music', 'sports', 'funny', 'animals', 'travel', 'fashion'];
 
         const cargarVideos = (query) => {
             const API_URL = `https://api.pexels.com/videos/search?query=${query}&per_page=4`;
