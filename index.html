@@ -114,10 +114,12 @@
         .topbar {
             position: fixed;
             top: 0;
+            /* lo pone en la parte más alta */
             left: 0;
             width: 100%;
             height: 0px;
-            background-color: rgba(0, 0, 0, 0.6);
+            /* ⚠️ Esto da altura visible al header */
+            background-color: rgba(0, 0, 0, 0);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -129,23 +131,17 @@
 
 
         .nav-textos a {
+
             margin-right: 10px;
             cursor: pointer;
             font-size: 18px;
-            opacity: 0.7;
+            opacity: 1;
             color: white;
             text-decoration: none;
             transition: opacity 0.3s ease;
         }
 
-        .nav-textos a:hover {
-            opacity: 1;
-        }
 
-        .nav-textos a.activo {
-            font-weight: bold;
-            opacity: 1;
-        }
 
 
         .icono-busqueda {
@@ -185,20 +181,20 @@
 
 <body>
 
-    <header class="topbar" id="topbar">
-        <div class="nav-textos">
-            <a href="profile.html" class="activo">Perfil</a>
-            <a href="discover.html">Explorar</a>
-            <a href="#">Siguiendo</a>
-            <a href="#">Para ti</a>
-        </div>
-        <div class="icono-busqueda">
-            <i class="bi bi-search"></i>
-        </div>
 
-    </header>
-
-
+    <header class="topbar" id="topbar"> 
+  <div class="nav-textos">
+    <a href="profile.html" class="activo" aria-label="Perfil">
+      <i class="bi bi-camera-reels"></i>
+    </a>
+    <a href="discover.html">Explorar</a>
+    <a href="#">Siguiendo</a>
+    <a href="#">Para ti</a>
+  </div>
+  <div class="icono-busqueda">
+    <i class="bi bi-search"></i>
+  </div>
+</header>
 
     <!-- Pantalla de carga tipo TikTok -->
     <div id="splash-screen">
@@ -210,6 +206,7 @@
         <div id="video-feed"></div>
 
         <div class="sidebar">
+
             <button>
                 <i class="bi bi-heart-fill"></i>
                 <span class="contador">120.0mil</span>
@@ -232,9 +229,9 @@
 
 
         <div class="video-info">
-            <strong>@Dev89</strong>
-            <p>Aventuras #travel✈️...más</p>
-
+            <strong>Carlos</strong>
+            <p>Aventuras #travel✈️😎🛸...más</p>
+            <p>🎵Music: Dj 13</p>
         </div>
     </div>
 
@@ -251,7 +248,7 @@
 
         <!-- El botón de cámara mantiene funcionalidad especial, no se cambia -->
         <button id="btnCamara">
-            <img class="tiktok" src="img/tiktok.svg" alt="Upload">
+            <img class="tiktok" src="img/boton-camara-TK.png" alt="Upload">
         </button>
         <input type="file" accept="image/*" capture="environment" id="inputCamara" class="oculto"
             aria-label="Abrir cámara">
