@@ -12,18 +12,28 @@
     <!-- Bootstrap Icons CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Android -->
+    <meta name="theme-color" content="#00000000">
 
-    <meta name="theme-color" content="#000000">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
     <style>
-        body,
-        html {
+        html,
+        body {
             margin: 0;
             padding: 0;
-            height: 100%;
-            width: 100%;
-            background: black;
-            color: white;
-            overflow: auto;
+            height: 100vh;
+            background-color: #000000bf;
+            /* fondo oscuro para TikTok */
+        }
+
+        body::before {
+            content: '';
+            display: block;
+            height: env(safe-area-inset-top);
+            /* iPhone notch */
         }
 
         #video-feed {
@@ -54,34 +64,50 @@
 
         .sidebar {
             position: absolute;
-            right: 9px;
-            top: 60%;
-            transform: translateY(-50%);
+            /* o fixed si quieres que quede fija */
+            right: 10px;
+            bottom: 100px;
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: 10px;
-
-
+            z-index: 999;
         }
 
+        /* Estilo de la imagen de perfil */
+        .sidebar img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+
+        /* Botones de acción */
         .sidebar button {
             background: none;
             border: none;
             color: white;
-            cursor: pointer;
-            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
+            cursor: pointer;
         }
 
-        .sidebar button i {
-            font-size: 28px;
+
+
+        .boton-corazon i {
+            color: red;
         }
 
-        .sidebar .contador {
+
+        .sidebar i {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .contador {
             font-size: 14px;
-            margin-top: 4px;
             color: white;
         }
 
@@ -182,19 +208,19 @@
 <body>
 
 
-    <header class="topbar" id="topbar"> 
-  <div class="nav-textos">
-    <a href="profile.html" class="activo" aria-label="Perfil">
-      <i class="bi bi-camera-reels"></i>
-    </a>
-    <a href="discover.html">Explorar</a>
-    <a href="#">Siguiendo</a>
-    <a href="#">Para ti</a>
-  </div>
-  <div class="icono-busqueda">
-    <i class="bi bi-search"></i>
-  </div>
-</header>
+    <header class="topbar" id="topbar">
+        <div class="nav-textos">
+            <a href="profile.html" class="activo" aria-label="Perfil">
+                <i class="bi bi-camera-reels"></i>
+            </a>
+            <a href="discover.html">Explorar</a>
+            <a href="#">Siguiendo</a>
+            <a href="#">Para ti</a>
+        </div>
+        <div class="icono-busqueda">
+            <i class="bi bi-search"></i>
+        </div>
+    </header>
 
     <!-- Pantalla de carga tipo TikTok -->
     <div id="splash-screen">
@@ -206,8 +232,10 @@
         <div id="video-feed"></div>
 
         <div class="sidebar">
-
-            <button>
+            <div class="foto-perfil">
+                <img src="./img/carlos.png" alt="Foto de perfil">
+            </div>
+            <button class="boton-corazon">
                 <i class="bi bi-heart-fill"></i>
                 <span class="contador">120.0mil</span>
             </button>
@@ -224,6 +252,7 @@
                 <span class="contador">10mil</span>
             </button>
         </div>
+
 
 
 
@@ -291,7 +320,7 @@
         const API_KEY = 'mfBKfkodYK7uJ6S6bmoNa7a5S257MmkIgHGdcOwKN7dH4RUFDvbhpR1Y'; // Coloca aquí tu API Key
 
         // Puedes agregar más temas aquí:
-        const CATEGORÍAS = ['nature', 'city', 'dance', 'music', 'sports', 'funny', 'animals', 'travel', 'fashion'];
+        const CATEGORÍAS = ['nature', 'city', 'dance', 'music', 'sports', 'animals', 'travel', 'food', 'art', 'technology', 'cars'];
 
         const cargarVideos = (query) => {
             const API_URL = `https://api.pexels.com/videos/search?query=${query}&per_page=4`;
