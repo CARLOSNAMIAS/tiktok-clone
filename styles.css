@@ -153,6 +153,13 @@ footer button p {
   font-size: 10px;
 }
 
+
+
+
+a.btn-icono {
+  text-decoration: none;
+}
+
 .btn-icono {
   background: none;
   border: none;
@@ -192,10 +199,6 @@ h3 {
   padding: 0;
 }
 
-a {
-  color: #0804cb;
-  text-decoration: none;
-}
 
 
 

@@ -1,3 +1,6 @@
+
+// Esta JS carga imágenes aleatorias de Unsplash y las muestra en la sección "Discover" de la página principal.
+
 const accessKey = 'qWZ8E3rnfP99QZr0m0UucnltA04gP6FuUoILqecxQpY'; // Reemplaza con tu clave real de Unsplash
 const container = document.getElementById('discoverContainer');
 

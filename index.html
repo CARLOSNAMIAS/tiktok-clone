@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clon TikTok</title>
     <link rel="icon" type="image/png" href="img/tk.PNG">
     <link rel="stylesheet" href="./styles.css">
@@ -13,23 +13,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
+
     <meta name="theme-color" content="#000000">
     <style>
-        body,
-        html {
+        html,
+        body {
             margin: 0;
             padding: 0;
             height: 100%;
-            width: 100%;
-            background: black;
-            color: white;
-            overflow: auto;
+            overflow-x: hidden;
         }
 
         #video-feed {
-            height: 100vh;
-            overflow-y: scroll;
-            scroll-snap-type: y mandatory;
+            height: calc(var(--vh, 1vh) * 100);
+            /* Altura real en móviles */
+            overflow-y: auto;
             scroll-behavior: smooth;
         }
 
@@ -226,7 +224,7 @@
             </div>
             <button class="boton-corazon">
                 <i class="bi bi-heart-fill"></i>
-                <span class="contador">120.0mil</span>
+                <span class="contador">120mil</span>
             </button>
             <button>
                 <i class="bi bi-chat-dots-fill"></i>
@@ -244,13 +242,13 @@
 
 
 
-
-
         <div class="video-info">
             <strong>Carlos</strong>
             <p>Aventuras #travel✈️😎🛸...más</p>
             <p>🎵Music: Dj 13</p>
         </div>
+
+
     </div>
 
     <footer>
@@ -282,8 +280,6 @@
         </a>
     </footer>
 
-
-
     <script>
         // Pantalla de carga
         window.addEventListener("load", () => {
@@ -299,16 +295,34 @@
                     topbar.style.display = "flex"; // Mostrar barra superior
                 }, 500);
             }, 2000); // 2 segundos
+
+            // Ajustar altura vh en móviles
+            const setFullHeight = () => {
+                const vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            };
+            setFullHeight();
+            window.addEventListener('resize', setFullHeight);
+
+            // Scroll inicial para intentar ocultar la barra de URL
+            setTimeout(() => {
+                window.scrollTo(0, 1);
+            }, 100);
         });
 
+        // Detectar scroll y forzar pequeño ajuste para ocultar barra
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                window.scrollBy(0, 1);
+            }, 300);
+        });
 
         // Cargar videos desde la API de Pexels
-
         const container = document.getElementById('video-feed');
+        const API_KEY = 'mfBKfkodYK7uJ6S6bmoNa7a5S257MmkIgHGdcOwKN7dH4RUFDvbhpR1Y';
 
-        const API_KEY = 'mfBKfkodYK7uJ6S6bmoNa7a5S257MmkIgHGdcOwKN7dH4RUFDvbhpR1Y'; // Coloca aquí tu API Key
-
-        // Puedes agregar más temas aquí:
         const CATEGORÍAS = ['nature', 'city', 'dance', 'music', 'sports', 'animals', 'travel', 'food', 'art', 'technology', 'cars'];
 
         const cargarVideos = (query) => {
@@ -339,7 +353,6 @@
                         container.appendChild(videoWrapper);
                     });
 
-                    // Después de cargar todos, observar los videos
                     const videos = document.querySelectorAll('video');
                     if (videos.length > 0) {
                         videos[0].play();
@@ -359,12 +372,12 @@
                 });
         };
 
-        // Cargar videos de todas las categorías
         CATEGORÍAS.forEach(cargarVideos);
-
-
-
     </script>
+
+
+
+
 </body>
 
 </html>
