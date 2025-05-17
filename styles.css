@@ -144,9 +144,9 @@ footer button img {
 }
 
 .tiktok {
-  height: 45px;
-
-
+  height: 60px; /* o más si lo necesitas */
+  width: auto;  /* para mantener proporción */
+  object-fit: contain; /* asegura que no se deforme */
 }
 
 footer button p {
