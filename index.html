@@ -368,7 +368,9 @@
                 .then(response => response.json())
                 .then(data => {
                     data.videos.forEach(video => {
-                        const videoUrl = video.video_files.find(v => v.quality === "sd")?.link;
+                        const videoUrl = 
+    video.video_files.find(v => v.quality === "hd")?.link || 
+    video.video_files.find(v => v.quality === "sd")?.link;
                         if (!videoUrl) return;
 
                         const videoWrapper = document.createElement('div');
