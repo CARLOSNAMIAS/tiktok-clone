@@ -65,7 +65,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 9px;
             z-index: 999;
         }
 
@@ -87,6 +87,7 @@
             flex-direction: column;
             align-items: center;
             cursor: pointer;
+            
         }
 
 
@@ -161,13 +162,20 @@
             text-decoration: none;
             transition: opacity 0.3s ease;
         }
-
+        .nav-textos a:hover {
+            opacity: 0.3;
+            /* Cambia la opacidad al pasar el ratón */
+        }
 
 
 
         .icono-busqueda {
-            font-size: 18px;
+            
+            font-size: 20px;
             cursor: pointer;
+            width: 40px;
+            height: 40px;
+            
         }
 
         #topbar {
@@ -200,7 +208,7 @@
         }
 
 
-        
+
 
 
         .foto-perfil {
@@ -234,6 +242,41 @@
             font-weight: bold;
             box-shadow: 0 0 6px red;
         }
+
+        /* barra de navegación secundaria*/
+        .para-ti-link {
+            border-bottom: 2px solid rgb(255, 255, 255);
+            padding-bottom: 4px;
+        }
+
+
+        .nav-textos {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            /* Espacio entre los enlaces */
+        }
+
+        .opaco {
+            opacity: 0.5!important;
+            
+           
+        }
+
+        .burbuja-container {
+            position: relative;
+        }
+
+        .badge-alert {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background-color: red;
+            color: rgb(255, 0, 0);
+            font-size: 5px;
+            padding: 2px 5px;
+            border-radius: 50%;
+        }
     </style>
 </head>
 
@@ -246,15 +289,21 @@
                 <img src="img/tiktok-live-black.svg" alt="Perfil" class="icono-svg">
             </a>
 
-            <a href="discover.html">Explorar</a>
-            <a href="#">Siguiendo</a>
-            <a href="#">Para ti</a>
-            
+            <a href="#" class="opaco">Explorar</a>
+
+            <a href="#" class="burbuja-container opaco">
+                Siguiendo
+                <span class="badge-alert">.</span>
+            </a>
+
+            <a href="#" class="para-ti-link">Para ti</a>
         </div>
+
         <div class="icono-busqueda">
             <i class="bi bi-search"></i>
         </div>
     </header>
+
 
     <!-- Pantalla de carga tipo TikTok -->
     <div id="splash-screen">
@@ -300,7 +349,7 @@
 
     <footer>
         <a href="index.html" class="btn-icono">
-            <img src="img/home-black.svg" alt="Home" class="icono">
+            <img src="img/home.svg" alt="Home" class="icono">
             <p>Inicio</p>
         </a>
 
