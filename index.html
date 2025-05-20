@@ -363,13 +363,48 @@
             display: none;
         }
 
-
-
+        
         .comentario {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
             padding: 8px 0;
-            font-size: 14px;
             border-bottom: 1px solid #22222200;
+            font-size: 12px;
             color: white;
+        }
+
+        .avatar {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .contenido-comentario {
+            flex-grow: 1;
+        }
+
+        .contenido-comentario p {
+            margin: 0;
+            font-size: 12px;
+            color: #fff;
+            text-align: justify;
+            /* Justifica el texto */
+            line-height: 1.4;
+            /* Espaciado vertical cómodo */
+            word-break: break-word;
+            /* Evita que el texto se desborde */
+        }
+
+        .like-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 2px;
+            color: #aaa;
+            transition: color 0.2s ease;
         }
 
         .oculto {
@@ -439,28 +474,57 @@
             <!-- Botón de comentarios -->
             <button id="btnComentarios" onclick="toggleComentarios()">
                 <i class="bi bi-chat-dots-fill"></i>
-                <span class="contador">80mil</span>
+                <span class="contador">520</span>
             </button>
 
             <div id="ventanaComentarios" class="popup-comentarios oculto">
                 <div class="comentarios-header">
-                    <h4 class="titulo-comentarios">120mil comentarios</h4>
+                    <h4 class="titulo-comentarios">520 Comentarios</h4>
                     <button class="cerrar" onclick="toggleComentarios()">✕</button>
                 </div>
                 <div class="comentarios-contenido">
-                    <div class="comentario"><strong>@ana:</strong> ¡Qué buen video! 🔥</div>
-                    <div class="comentario  "><strong>@pablo:</strong> Me encanta tu contenido 😍</div>
-                    <div class="comentario"><strong>@jose123:</strong> ¿Dónde lo grabaste?</div>
-                    <div class="comentario"><strong>@camila_yt:</strong> Me encanta tu estilo 😍</div>
-                    <div class="comentario"><strong>@marco:</strong> Top 💯</div>
-                    <div class="comentario"><strong>@laura:</strong> ¡Eres genial!</div>
-                    <div class="comentario"><strong>@carlos:</strong> Gracias por el apoyo, ¡los quiero!</div>
-                    <div class="comentario"><strong>@maria:</strong> ¡Increíble!</div>
-                    <div class="comentario"><strong>@luis:</strong> ¡Sigue así!</div>
-                    <div class="comentario"><strong>@sofia:</strong> ¡Eres el mejor!</div>
-                    <div class="comentario "><strong>@david:</strong> ¡Me encanta tu energía!</div>
-                    <div class="comentario"><strong>@lucia:</strong> ¡Qué divertido!</div>
+                    <div class="comentario">
+                        <img class="avatar" src="https://i.pravatar.cc/40?img=1" alt="ana" />
+                        <div class="contenido-comentario">
+                            <p><strong>@Egle:</strong> sigue si hijo poco a poco terminaras por completo el clone tiktok! 🧑🏽‍💻🛸🙏🏽</p>
+                        </div>
+                        <button class="like-btn"><i class="bi bi-heart-fill"></i></button>
+                    </div>
+
+                    <div class="comentario">
+                        <img class="avatar" src="https://i.pravatar.cc/40?img=2" alt="pablo" />
+                        <div class="contenido-comentario">
+                            <p><strong>@pablo:</strong>buen contenido puedes realizar mas 😎🛸🧑🏽‍💻 </p>
+                        </div>
+                        <button class="like-btn"><i class="bi bi-heart"></i></button>
+                    </div>
+
+                    <!-- Repite para los demás comentarios -->
+                    <div class="comentario">
+                        <img class="avatar" src="https://i.pravatar.cc/40?img=3" alt="maria" />
+                        <div class="contenido-comentario">
+                            <p><strong>@maria:</strong> ¡Increíble! 👏</p>
+                        </div>
+                        <button class="like-btn liked"><i class="bi bi-heart"></i></button>
+                    </div>
+                    <div class="comentario">
+                        <img class="avatar" src="https://i.pravatar.cc/40?img=4" alt="jose" />
+                        <div class="contenido-comentario">
+                            <p><strong>@jose:</strong> ¡Me encanta! ❤️</p>
+                        </div>
+                        <button class="like-btn"><i class="bi bi-heart"></i></button>
+                    </div>
+                    <div class="comentario">
+                        <img class="avatar" src="https://i.pravatar.cc/40?img=5" alt="laura" />
+                        <div class="contenido-comentario">
+                            <p><strong>@laura:</strong> ¡Genial! 💖
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, dignissimos fugit, ab ad quibusdam quis, incidunt numquam placeat voluptatem minima officiis cumque eum aut! Minus velit dolorem laboriosam explicabo aspernatur.</p>
+                        </div>
+                        <button class="like-btn"><i class="bi bi-heart"></i></button>
+                    </div>
+
                 </div>
+
             </div>
 
             <button>
