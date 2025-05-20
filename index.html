@@ -282,6 +282,7 @@
 
 
         /* Estilo ventana emergente de comentarios */
+
         .popup-comentarios {
             position: fixed;
             bottom: 0;
@@ -289,13 +290,40 @@
             right: 0;
             max-height: 40%;
             background: #0d0d0d;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-            box-shadow: 0 -4px 12px rgb(0, 0, 0);
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.11);
             z-index: 999;
             display: flex;
             flex-direction: column;
+            transform: translateY(100%);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
+
+
+
+
+        .popup-comentarios.mostrar {
+            transform: translateY(0%);
+            opacity: 1;
+            animation: slideUpFadeIn 0.3s ease forwards;
+        }
+
+        /* Animación de entrada */
+
+        @keyframes slideUpFadeIn {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0%);
+                opacity: 1;
+            }
+        }
+
 
         .comentarios-header {
             flex-shrink: 0;
@@ -421,6 +449,7 @@
                 </div>
                 <div class="comentarios-contenido">
                     <div class="comentario"><strong>@ana:</strong> ¡Qué buen video! 🔥</div>
+                    <div class="comentario  "><strong>@pablo:</strong> Me encanta tu contenido 😍</div>
                     <div class="comentario"><strong>@jose123:</strong> ¿Dónde lo grabaste?</div>
                     <div class="comentario"><strong>@camila_yt:</strong> Me encanta tu estilo 😍</div>
                     <div class="comentario"><strong>@marco:</strong> Top 💯</div>
@@ -428,6 +457,9 @@
                     <div class="comentario"><strong>@carlos:</strong> Gracias por el apoyo, ¡los quiero!</div>
                     <div class="comentario"><strong>@maria:</strong> ¡Increíble!</div>
                     <div class="comentario"><strong>@luis:</strong> ¡Sigue así!</div>
+                    <div class="comentario"><strong>@sofia:</strong> ¡Eres el mejor!</div>
+                    <div class="comentario "><strong>@david:</strong> ¡Me encanta tu energía!</div>
+                    <div class="comentario"><strong>@lucia:</strong> ¡Qué divertido!</div>
                 </div>
             </div>
 
@@ -564,16 +596,18 @@
 
 
 
-
-
-
-
-
-
-
         function toggleComentarios() {
             const ventana = document.getElementById('ventanaComentarios');
-            ventana.classList.toggle('oculto');
+
+            if (ventana.classList.contains('mostrar')) {
+                // Oculta con animación inversa
+                ventana.classList.remove('mostrar');
+                setTimeout(() => ventana.classList.add('oculto'), 300); // Espera a que termine la animación
+            } else {
+                ventana.classList.remove('oculto');
+                // Activa animación de entrada
+                setTimeout(() => ventana.classList.add('mostrar'), 10);
+            }
         }
 
         // Cerrar al hacer clic fuera
@@ -582,7 +616,8 @@
             const boton = document.getElementById('btnComentarios');
 
             if (!ventana.contains(e.target) && !boton.contains(e.target)) {
-                ventana.classList.add('oculto');
+                ventana.classList.remove('mostrar');
+                setTimeout(() => ventana.classList.add('oculto'), 300); // Espera que se oculte suavemente
             }
         });
     </script>
