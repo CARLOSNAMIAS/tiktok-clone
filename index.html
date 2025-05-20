@@ -87,7 +87,7 @@
             flex-direction: column;
             align-items: center;
             cursor: pointer;
-            
+
         }
 
 
@@ -145,7 +145,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 16px;
+            padding: 0 14px;
             z-index: 10000;
             color: white;
             font-family: sans-serif;
@@ -162,6 +162,7 @@
             text-decoration: none;
             transition: opacity 0.3s ease;
         }
+
         .nav-textos a:hover {
             opacity: 0.3;
             /* Cambia la opacidad al pasar el ratón */
@@ -170,12 +171,12 @@
 
 
         .icono-busqueda {
-            
+
             font-size: 20px;
             cursor: pointer;
             width: 40px;
             height: 40px;
-            
+
         }
 
         #topbar {
@@ -230,7 +231,7 @@
             /* queda justo debajo de la imagen */
             left: 50%;
             transform: translateX(-50%);
-            background-color: rgb(255, 0, 119);
+            background-color: rgb(255, 0, 60);
             color: white;
             width: 20px;
             height: 20px;
@@ -253,14 +254,14 @@
         .nav-textos {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             /* Espacio entre los enlaces */
         }
 
         .opaco {
-            opacity: 0.5!important;
-            
-           
+            opacity: 0.5 !important;
+
+
         }
 
         .burbuja-container {
@@ -276,6 +277,91 @@
             font-size: 5px;
             padding: 2px 5px;
             border-radius: 50%;
+        }
+
+
+
+        /* Estilo ventana emergente de comentarios */
+        .popup-comentarios {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            max-height: 40%;
+            background: #0d0d0d;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            box-shadow: 0 -4px 12px rgb(0, 0, 0);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comentarios-header {
+            flex-shrink: 0;
+            position: sticky;
+            top: 0;
+            background-color: #0d0d0d;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #44444400;
+            padding: 10px 15px;
+        }
+
+
+
+        .titulo-comentarios {
+            margin: 0 auto;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .comentarios-contenido {
+            overflow-y: auto;
+            padding: 10px 15px;
+            flex-grow: 1;
+
+            /* Firefox */
+            scrollbar-width: none;
+
+            /* Internet Explorer 10+ */
+            -ms-overflow-style: none;
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        .comentarios-contenido::-webkit-scrollbar {
+            display: none;
+        }
+
+
+
+        .comentario {
+            padding: 8px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #22222200;
+            color: white;
+        }
+
+        .oculto {
+            display: none;
+        }
+
+        .cerrar {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+
+        button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
         }
     </style>
 </head>
@@ -322,10 +408,29 @@
                 <i class="bi bi-heart-fill"></i>
                 <span class="contador">120mil</span>
             </button>
-            <button>
+            <!-- Botón de comentarios -->
+            <button id="btnComentarios" onclick="toggleComentarios()">
                 <i class="bi bi-chat-dots-fill"></i>
                 <span class="contador">80mil</span>
             </button>
+
+            <div id="ventanaComentarios" class="popup-comentarios oculto">
+                <div class="comentarios-header">
+                    <h4 class="titulo-comentarios">120mil comentarios</h4>
+                    <button class="cerrar" onclick="toggleComentarios()">✕</button>
+                </div>
+                <div class="comentarios-contenido">
+                    <div class="comentario"><strong>@ana:</strong> ¡Qué buen video! 🔥</div>
+                    <div class="comentario"><strong>@jose123:</strong> ¿Dónde lo grabaste?</div>
+                    <div class="comentario"><strong>@camila_yt:</strong> Me encanta tu estilo 😍</div>
+                    <div class="comentario"><strong>@marco:</strong> Top 💯</div>
+                    <div class="comentario"><strong>@laura:</strong> ¡Eres genial!</div>
+                    <div class="comentario"><strong>@carlos:</strong> Gracias por el apoyo, ¡los quiero!</div>
+                    <div class="comentario"><strong>@maria:</strong> ¡Increíble!</div>
+                    <div class="comentario"><strong>@luis:</strong> ¡Sigue así!</div>
+                </div>
+            </div>
+
             <button>
                 <i class="bi bi-bookmark-fill"></i>
                 <span class="contador">8mil</span>
@@ -340,7 +445,7 @@
 
         <div class="video-info">
             <strong>CarlosJosé</strong>
-            <p>#travel✈️🛸#Clon/tiktok🔥📲🧑🏽‍💻...más</p>
+            <p>#travel✈️ 🛸#Clon/tiktok🔥 🧑🏽‍💻...más</p>
             <p>🎵Music: Dj 13</p>
         </div>
 
@@ -370,7 +475,6 @@
             <span class="burbuja">10</span>
             <p>Mensajes</p>
         </a>
-
 
         <a href="profile.html" class="btn-icono">
             <img src="img/profile.svg" alt="Profile" class="icono">
@@ -404,7 +508,7 @@
         const API_KEY = 'mfBKfkodYK7uJ6S6bmoNa7a5S257MmkIgHGdcOwKN7dH4RUFDvbhpR1Y'; // Coloca aquí tu API Key
 
         // Puedes agregar más temas aquí:
-        const CATEGORÍAS = ['nature', 'city', 'dance', 'music', 'sports', 'animals', 'travel', 'food', 'art', 'technology', 'cars'];
+        const CATEGORÍAS = ['Space', 'city', 'dance', 'News', 'sports', 'animals', 'travel', 'food', 'Education', 'technology', 'cars'];
 
         const cargarVideos = (query) => {
             const API_URL = `https://api.pexels.com/videos/search?query=${query}&per_page=4`;
@@ -457,6 +561,30 @@
         // Cargar videos de todas las categorías
         CATEGORÍAS.forEach(cargarVideos);
 
+
+
+
+
+
+
+
+
+
+
+        function toggleComentarios() {
+            const ventana = document.getElementById('ventanaComentarios');
+            ventana.classList.toggle('oculto');
+        }
+
+        // Cerrar al hacer clic fuera
+        document.addEventListener('click', function (e) {
+            const ventana = document.getElementById('ventanaComentarios');
+            const boton = document.getElementById('btnComentarios');
+
+            if (!ventana.contains(e.target) && !boton.contains(e.target)) {
+                ventana.classList.add('oculto');
+            }
+        });
     </script>
 </body>
 

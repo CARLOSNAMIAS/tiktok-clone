@@ -8,7 +8,11 @@
     "not and_ff <= 125",
     "not firefox <= 125",
     "not ios_saf <= 12.5",
-    "not opera <= 108"
+    "not opera <= 108",
+    "not chrome <= 109",
+    "not ios_saf <= 17.5",
+    "not safari <= 17.5",
+    "not samsung <= 24"
   ],
   "hints": {
     "compat-api/html": [
