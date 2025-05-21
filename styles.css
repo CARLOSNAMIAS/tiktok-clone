@@ -147,6 +147,7 @@ footer button img {
   height: 50px; /* o más si lo necesitas */
   width: auto;  /* para mantener proporción */
   object-fit: contain; /* asegura que no se deforme */
+  display: block;
 }
 
 footer button p {
