@@ -370,6 +370,13 @@
             font-size: 12px;
             color: white;
             position: relative;
+
+            max-width: 1000px;
+            /* Limita el ancho del comentario */
+            margin: 0 auto;
+            /* Centra horizontalmente */
+            width: 100%;
+            /* Asegura que use todo el ancho disponible dentro del límite */
         }
 
         .avatar {
@@ -381,9 +388,12 @@
         }
 
         .contenido-comentario {
-            flex-grow: 1;
+            display: block;
+            flex-direction: column;
+            /* 👈 Clave para que el texto y los botones se apilen verticalmente */
             max-width: 100%;
         }
+
 
         .contenido-comentario p {
             margin: 0;
@@ -408,10 +418,29 @@
             /* 👈 Esto lo baja al fondo del contenedor */
         }
 
-        .like-btn i {
+        /* Estilo para el botón de "me gusta" */
+        .reacciones {
+            display: flex;
+            justify-content: flex-start;
+            /* 👉 los alinea a la izquierda */
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+
+        .like-btn i,
+        .dislike-btn i {
             font-size: 10px;
-            /* Cambia este valor según el tamaño que desees */
-            transition: color 0.2s ease;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .like-btn.liked i {
+            color: red;
+        }
+
+        .dislike-btn.disliked i {
+            color: gray;
         }
 
 
@@ -521,81 +550,103 @@
                     <div class="comentario">
                         <img class="avatar" src="https://i.pravatar.cc/40?img=20" alt="ana" />
                         <div class="contenido-comentario">
-                            <p><strong>@user:</strong> sigue asi poco a poco terminaras por completo el clone
-                                tiktok! 🧑🏽‍💻🛸🙏🏽</p>
+                            <p><strong>@user:</strong> sigue asi poco a poco terminaras por completo el clone tiktok!
+                                🧑🏽‍💻🛸🙏🏽</p>
+                            <div class="reacciones">
+                                <button class="like-btn"><i class="bi bi-heart"></i></button>
+                                <button class="dislike-btn"><i class="bi bi-hand-thumbs-down"></i></button>
+                            </div>
                         </div>
-                        <button class="like-btn"><i class="bi bi-heart"></i></button>
                     </div>
 
                     <div class="comentario">
                         <img class="avatar" src="https://i.pravatar.cc/40?img=2" alt="pablo" />
                         <div class="contenido-comentario">
-                            <p><strong>@pablo:</strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
-                                quasi fugiat nesciunt consectetur sit ducimus aliquam quis quod, doloribus magnam.
-                                Praesentium magni esse quidem quasi accusamus dolorum aut ducimus ex! 😎🛸🧑🏽‍💻 </p>
+                            <p><strong>@pablo:</strong> ¡Buen trabajo, pero podrías mejorar en algunos detalles! 😅</p>
+                            <div class="reacciones">
+                                <button class="like-btn"><i class="bi bi-heart"></i></button>
+                                <button class="dislike-btn"><i class="bi bi-hand-thumbs-down"></i></button>
+                            </div>
                         </div>
-                        <button class="like-btn"><i class="bi bi-heart"></i></button>
                     </div>
 
-                    <!-- Repite para los demás comentarios -->
                     <div class="comentario">
                         <img class="avatar" src="https://i.pravatar.cc/40?img=20" alt="maria" />
                         <div class="contenido-comentario">
                             <p><strong>@maria:</strong> ¡Increíble! Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit. Ipsa dolore autem fugit eveniet. Vel laboriosam ipsa consequuntur voluptate
-                                aliquam delectus obcaecati unde itaque nulla, voluptas tenetur dolor, reiciendis, magni
-                                error?👏</p>
+                                elit. Ipsa dolore autem fugit eveniem ipsa consequuntur voluptate aliquam delectus
+                                obcaecanetur dolor, reiciendis, magni error?👏</p>
+                            <div class="reacciones">
+                                <button class="like-btn liked"><i class="bi bi-heart-fill"></i></button>
+                                <button class="dislike-btn"><i class="bi bi-hand-thumbs-down"></i></button>
+                            </div>
                         </div>
-                        <button class="like-btn liked"><i class="bi bi-heart-fill"></i></button>
                     </div>
+
                     <div class="comentario">
                         <img class="avatar" src="https://i.pravatar.cc/40?img=4" alt="jose" />
                         <div class="contenido-comentario">
-                            <p><strong>@lisbeth:</strong> ¡Me encanta!</p>
+                            <p><strong>@lisbeth:</strong>¡Me encanta! Lorem ipsum dolor, sit amet consectetur
+                                adipisicing elit. Ex, officiis aliquid nulla iste saepe ipsa quisquam repudiandae
+                                possimus.</p>
+                            <div class="reacciones">
+                                <button class="like-btn"><i class="bi bi-heart"></i></button>
+                                <button class="dislike-btn"><i class="bi bi-hand-thumbs-down"></i></button>
+                            </div>
                         </div>
-                        <button class="like-btn"><i class="bi bi-heart"></i></button>
                     </div>
+
                     <div class="comentario">
                         <img class="avatar" src="https://i.pravatar.cc/40?img=5" alt="laura" />
                         <div class="contenido-comentario">
-                            <p><strong>@laura:</strong> ¡Genial!
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, dignissimos fugit, ab ad
-                                quibusdam quis, incidunt numquam placeat voluptatem minima officiis cumque eum aut!
-                                Minus velit dolorem laboriosam explicabo aspernatur.</p>
+                            <p><strong>@laura:</strong> ¡Genial! Lorem ipsum dolor sit amet consectetur adipisicing
+                                elit. Alias, dignissimos fugit, ab ad qui officiis cumque eum aut! Minus velit dolorem
+                                laboriosam explicabo aspernatur.</p>
+                            <div class="reacciones">
+                                <button class="like-btn"><i class="bi bi-heart"></i></button>
+                                <button class="dislike-btn"><i class="bi bi-hand-thumbs-down"></i></button>
+                            </div>
                         </div>
-                        <button class="like-btn"><i class="bi bi-heart"></i></button>
                     </div>
+
                     <div class="comentario">
                         <img class="avatar" src="https://i.pravatar.cc/40?img=10" alt="laura" />
                         <div class="contenido-comentario">
-                            <p><strong>@sol:</strong> ¡Genial! 🙏🏽🔥
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, dignissimos fugit, ab ad
-                                quibusdam quis, incidunt numquam placeat voluptatem minima officiis cumque eum aut!
-                                Minus velit dolorem laboriosam explicabo aspernatur.</p>
+                            <p><strong>@sol:</strong> ¡Genial! 🙏🏽🔥 Lorem ipsum dolor sit amet consectetur adipisicing
+                                elit. Alias, dignissimos fugit, ab ad quibusdam quis, incidunt numquam placeat
+                                voluptatem minima officiis cumque eum aut! Minus velit dolorem laboriosam explicabo
+                                aspernatur.</p>
+                            <div class="reacciones">
+                                <button class="like-btn"><i class="bi bi-heart"></i></button>
+                                <button class="dislike-btn"><i class="bi bi-hand-thumbs-down"></i></button>
+                            </div>
                         </div>
-                        <button class="like-btn"><i class="bi bi-heart"></i></button>
                     </div>
 
                     <div class="comentario">
                         <img class="avatar" src="https://i.pravatar.cc/40?img=50" alt="laura" />
                         <div class="contenido-comentario">
-                            <p><strong>@ana:</strong> ¡Genial!
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, d.</p>
+                            <p><strong>@ana:</strong> ¡Genial! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Alias, d.</p>
+                            <div class="reacciones">
+                                <button class="like-btn"><i class="bi bi-heart"></i></button>
+                                <button class="dislike-btn"><i class="bi bi-hand-thumbs-down"></i></button>
+                            </div>
                         </div>
-                        <button class="like-btn"><i class="bi bi-heart"></i></button>
                     </div>
 
                     <div class="comentario">
                         <img class="avatar" src="https://i.pravatar.cc/40?img=30" alt="laura" />
                         <div class="contenido-comentario">
-                            <p><strong>@lis:</strong> ¡Genial!
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, d.</p>
+                            <p><strong>@lis:</strong> ¡Genial! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Alias, d.</p>
+                            <div class="reacciones">
+                                <button class="like-btn"><i class="bi bi-heart"></i></button>
+                                <button class="dislike-btn"><i class="bi bi-hand-thumbs-down"></i></button>
+                            </div>
                         </div>
-                        <button class="like-btn"><i class="bi bi-heart"></i></button>
                     </div>
-
                 </div>
-
             </div>
 
             <button>
@@ -759,28 +810,26 @@
 
 
         // Agregar evento de clic a los botones de "me gusta"
+        // Like
         document.querySelectorAll('.like-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const icon = btn.querySelector('i');
-
-                // Alternar clases para efecto de "like"
                 btn.classList.toggle('liked');
-
-                // Cambiar entre corazón vacío y relleno
-                if (btn.classList.contains('liked')) {
-                    icon.classList.remove('bi-heart');
-                    icon.classList.add('bi-heart-fill');
-                } else {
-                    icon.classList.remove('bi-heart-fill');
-                    icon.classList.add('bi-heart');
-                }
-
-                // Reiniciar animación
-                icon.style.animation = 'none';
-                icon.offsetHeight; // forzar reflow
-                icon.style.animation = '';
+                icon.classList.toggle('bi-heart');
+                icon.classList.toggle('bi-heart-fill');
             });
         });
+
+        // Dislike
+        document.querySelectorAll('.dislike-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const icon = btn.querySelector('i');
+                btn.classList.toggle('disliked');
+                icon.classList.toggle('bi-hand-thumbs-down');
+                icon.classList.toggle('bi-hand-thumbs-down-fill');
+            });
+        });
+
     </script>
 </body>
 
