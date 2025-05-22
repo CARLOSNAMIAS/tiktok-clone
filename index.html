@@ -23,6 +23,7 @@
             background: black;
             color: white;
             overflow: auto;
+
         }
 
 
@@ -109,6 +110,14 @@
             position: absolute;
             bottom: 50px;
             left: 15px;
+
+        }
+
+
+        .video-info strong {
+            font-size: 16px;
+            color: white;
+            font-weight: bold;
         }
 
 
@@ -138,7 +147,7 @@
             width: 100%;
             height: 0px;
             /* ⚠️ Esto da altura visible al header */
-            background-color: rgba(0, 0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.425);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -157,11 +166,12 @@
             opacity: 1;
             color: white;
             text-decoration: none;
-            transition: opacity 0.3s ease;
+            text-shadow: #000000 1px 1px 3px;
+            font-weight: bold;
         }
 
         .nav-textos a:hover {
-            opacity: 0.3;
+            opacity: 0.5;
             /* Cambia la opacidad al pasar el ratón */
         }
 
@@ -253,6 +263,8 @@
             align-items: center;
             gap: 5px;
             /* Espacio entre los enlaces */
+            font-size: 16px;
+
         }
 
         .opaco {
@@ -371,12 +383,12 @@
             color: white;
             position: relative;
 
-            max-width: 1000px;
+            max-width: 1400spx;
             /* Limita el ancho del comentario */
             margin: 0 auto;
             /* Centra horizontalmente */
             width: 100%;
-            /* Asegura que use todo el ancho disponible dentro del límite */
+            /* Asegura que use todo el ancho dispsonible dentro del límite */
         }
 
         .avatar {
@@ -388,10 +400,10 @@
         }
 
         .contenido-comentario {
-            display: block;
+            display: flex;
             flex-direction: column;
             /* 👈 Clave para que el texto y los botones se apilen verticalmente */
-            max-width: 100%;
+            flex: 1;
         }
 
 
@@ -430,7 +442,7 @@
 
         .like-btn i,
         .dislike-btn i {
-            font-size: 10px;
+            font-size: 12px;
             transition: color 0.3s;
             cursor: pointer;
         }
@@ -550,7 +562,10 @@
                     <div class="comentario">
                         <img class="avatar" src="https://i.pravatar.cc/40?img=20" alt="ana" />
                         <div class="contenido-comentario">
-                            <p><strong>@user:</strong> sigue asi poco a poco terminaras por completo el clone tiktok!
+                            <p><strong>@user:</strong> sigue asi poco a poco terminaras por completo el clone Lorem
+                                ipsum dolor sit amet consectetur adipisicing elit. Iste, beatae facilis obcaecati sint
+                                repellat esse eum animi cupiditate ut quasi nesciunt maxime cumque mollitia, ducimus
+                                explicabo voluptate non tempore aliquam!stiktok!
                                 🧑🏽‍💻🛸🙏🏽</p>
                             <div class="reacciones">
                                 <button class="like-btn"><i class="bi bi-heart"></i></button>
@@ -562,7 +577,10 @@
                     <div class="comentario">
                         <img class="avatar" src="https://i.pravatar.cc/40?img=2" alt="pablo" />
                         <div class="contenido-comentario">
-                            <p><strong>@pablo:</strong> ¡Buen trabajo, pero podrías mejorar en algunos detalles! 😅</p>
+                            <p><strong>@pablo:</strong> ¡Buen trabajo, pero podrías mejorar en algunos detalles! Lorem
+                                ipsum dolor sit amet consectetur, adipisicing elit. Harum temporibus enim quo
+                                repellendus at doloremque, cupiditate impedit fugiat ad cum unde minus porro sapiente
+                                recusandae, mollitia placeat, sint sit ducimus.😅</p>
                             <div class="reacciones">
                                 <button class="like-btn"><i class="bi bi-heart"></i></button>
                                 <button class="dislike-btn"><i class="bi bi-hand-thumbs-down"></i></button>
@@ -639,6 +657,9 @@
                         <img class="avatar" src="https://i.pravatar.cc/40?img=30" alt="laura" />
                         <div class="contenido-comentario">
                             <p><strong>@lis:</strong> ¡Genial! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam illum ratione id fuga
+                                rem architecto saepe, aliquid ullam, beatae molestiae earum provident repellendus omnis.
+                                Autem porro ratione nobis aspernatur culpa.ss
                                 Alias, d.</p>
                             <div class="reacciones">
                                 <button class="like-btn"><i class="bi bi-heart"></i></button>
@@ -685,8 +706,7 @@
         <button id="btnCamara">
             <img class="tiktok" src="img/boton-camara-TK.png" alt="Upload">
         </button>
-        <input type="file" accept="image/*" capture="environment" id="inputCamara" class="oculto"
-            aria-label="Abrir cámara">
+
 
         <a href="#" class="btn-icono notificacion">
             <img src="img/inbox.svg" alt="Inbox" class="icono">
@@ -726,7 +746,7 @@
         const API_KEY = 'mfBKfkodYK7uJ6S6bmoNa7a5S257MmkIgHGdcOwKN7dH4RUFDvbhpR1Y'; // Coloca aquí tu API Key
 
         // Puedes agregar más temas aquí:
-        const CATEGORÍAS = ['Space', 'city', 'dance', 'News', 'sports', 'animals', 'travel', 'food', 'Education', 'technology', 'cars'];
+        const CATEGORÍAS = ['Space', 'city', 'News', 'sports', 'animals', 'travel', 'food', 'Education', 'technology', 'cars'];
 
         const cargarVideos = (query) => {
             const API_URL = `https://api.pexels.com/videos/search?query=${query}&per_page=4`;
