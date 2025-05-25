@@ -1,14 +1,457 @@
+/* ========================================
+   RESET Y ESTILOS BASE
+   ======================================== */
+
+/* Reset global para elementos comunes */
 * {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  color: #fcfcfc;
+  box-sizing: border-box; /* Buena práctica para el modelo de caja */
 }
 
+/* Configuración base del documento */
+html,
 body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
   background-color: #000000;
+  color: #fcfcfc;
+  overflow: auto;
 }
+
+/* ========================================
+   PANTALLA DE SPLASH (CARGA)
+   ======================================== */
+
+#splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#splash-screen .logo {
+  width: 100px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Animación de entrada del logo */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ========================================
+   BARRA DE NAVEGACIÓN SUPERIOR
+   ======================================== */
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0px; /* Altura fija definida */
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 14px;
+  z-index: 10000;
+  color: white;
+  font-family: sans-serif;
+}
+
+#topbar {
+  display: none; /* Oculto por defecto */
+}
+
+/* Navegación de texto en la barra superior */
+.nav-textos {
+  display: flex;
+  align-items: center;
+  gap: 2px; /* Espacio más consistente entre enlaces */
+  font-size: 14px;
+}
+
+
+
+.icono-svg {
+  width: 2rem;
+  /* Tamaño similar a Bootstrap Icons */
+  height: 20rem !important;
+  fill: currentColor;
+  /* Usa el color del texto del padre */
+  vertical-align: middle;
+  filter: invert();
+
+
+}
+
+
+.nav-textos a {
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  opacity: 1;
+  color: white;
+  text-decoration: none;
+  text-shadow: rgba(0, 0, 0, 0.65) 1px 1px 3px;
+  font-weight: bold;
+  transition: opacity 0.3s ease; /* Transición suave */
+}
+
+.nav-textos a:hover {
+  opacity: 0.5;
+}
+
+/* Enlace activo "Para ti" */
+.para-ti-link {
+  border-bottom: 2px solid rgb(255, 255, 255);
+  padding-bottom: 4px;
+}
+
+/* Icono de búsqueda */
+.icono-busqueda {
+  font-size: 20px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+/* ========================================
+   FEED DE VIDEOS PRINCIPAL
+   ======================================== */
+
+#video-feed {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+/* Ocultar scrollbar para apariencia más limpia */
+#video-feed::-webkit-scrollbar {
+  display: none;
+}
+
+/* Contenedor individual de cada video */
+.video-item {
+  height: 100vh;
+  width: 100vw;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+/* Elemento video dentro del contenedor */
+.video-item video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ========================================
+   BARRA LATERAL DE INTERACCIONES
+   ======================================== */
+
+.sidebar {
+  position: absolute;
+  right: 10px;
+  bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Espacio más consistente */
+  z-index: 999;
+}
+
+/* Imagen de perfil en sidebar */
+.sidebar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+/* Botones de acción en sidebar */
+.sidebar button {
+  background: none;
+  border: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease; /* Transición suave */
+}
+
+
+
+/* Iconos en sidebar */
+.sidebar i {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.boton-corazon i {
+  color: rgb(255, 255, 255);
+}
+
+/* Contador de interacciones */
+.contador {
+  font-size: 14px;
+  color: white;
+}
+
+/* ========================================
+   INFORMACIÓN DEL VIDEO
+   ======================================== */
+
+.video-info {
+  position: absolute;
+  bottom: 50px;
+  left: 15px;
+}
+
+.video-info strong {
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+}
+
+.hashtag {
+    color: #ffffff; /* o el color que desees */
+}
+
+.video-info p {
+  font-size: 14px;
+  color: white;
+  margin-top: 5px;
+}
+
+
+/* ========================================
+   PERFIL DE USUARIO
+   ======================================== */
+
+.foto-perfil {
+  position: relative;
+  display: inline-block;
+}
+
+.foto-perfil img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Burbuja de notificación en perfil */
+.burbuja-perfil {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(255, 0, 60);
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: 0 0 6px red;
+}
+
+/* ========================================
+   VENTANA EMERGENTE DE COMENTARIOS
+   ======================================== */
+
+.popup-comentarios {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 50%;
+  background: #090909;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.11);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.popup-comentarios.mostrar {
+  transform: translateY(0%);
+  opacity: 1;
+  animation: slideUpFadeIn 0.3s ease forwards;
+}
+
+/* Animación de entrada de comentarios */
+@keyframes slideUpFadeIn {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+/* Header de la ventana de comentarios */
+.comentarios-header {
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  background-color: #090909;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #00000000;
+  padding: 10px 15px;
+  border-radius: 15px;
+}
+
+.titulo-comentarios {
+  margin: 0 auto;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Contenido scrolleable de comentarios */
+.comentarios-contenido {
+  overflow-y: auto;
+  padding: 10px 15px;
+  flex-grow: 1;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+/* Ocultar scrollbar en WebKit */
+.comentarios-contenido::-webkit-scrollbar {
+  display: none;
+}
+
+/* ========================================
+   COMENTARIOS INDIVIDUALES
+   ======================================== */
+
+.comentario {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid transparent;
+  font-size: 12px;
+  color: rgb(186, 186, 186);
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Avatar del usuario en comentario */
+.avatar {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Contenido del comentario */
+.contenido-comentario {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.contenido-comentario p {
+  margin: 0;
+  font-size: 12px;
+  color: #fff;
+  text-align: justify;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+/* Sección de reacciones */
+.reacciones {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.like-btn,
+.dislike-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1px;
+  color: #414141;
+  transition: color 0.2s ease;
+  align-self: flex-end;
+}
+
+.like-btn i,
+.dislike-btn i {
+  font-size: 12px;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.like-btn.liked i {
+  color: #ff2c55;
+  animation: pop 0.3s ease;
+}
+
+.dislike-btn.disliked i {
+  color: gray;
+}
+
+/* Animación de "me gusta" */
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ========================================
+   SECCIÓN DE PERFIL DE USUARIO
+   ======================================== */
 
 .titulo {
   padding: 10px;
@@ -65,197 +508,11 @@ header div img {
   text-decoration: none;
 }
 
-.nav-videos {
-  border-top: 1px solid rgb(224, 224, 224);
-  border-bottom: 1px solid rgb(224, 224, 224);
-  display: flex;
-  justify-content: space-around;
-
-}
-
-.nav-videos button {
-  background-color: transparent;
-  border: none;
-  padding-top: 7px;
-  padding-bottom: 3px;
-}
-
-.nav-videos .activado {
-  border-bottom: 2px solid black;
-  width: 30px;
-}
-
-.nav-videos button img {
-  height: 18px;
-}
-
-main img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-}
-
-
-main {
-
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1px;
-}
-
-main img {
-  width: 100%;
-  aspect-ratio: 9 / 16;
-  /* proporción vertical como videos */
-  object-fit: cover;
-  display: block;
-  border-radius: 1px;
-}
-
-
-.loading {
-  padding: 20px;
-  font-size: 16px;
-  color: #fff;
-  text-align: center;
-  display: none;
-}
-
-footer {
-  position: fixed;
-  bottom: 0;
-  background-color: #000000;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 3px 0;
-  z-index: 10;
-}
-
-footer button {
-  background-color: transparent;
-  border: none;
-}
-
-footer button img {
-  height: 22px;
-}
-
-.tiktok {
-  height: 50px; /* o más si lo necesitas */
-  width: auto;  /* para mantener proporción */
-  object-fit: contain; /* asegura que no se deforme */
-  display: block;
-}
-
-footer button p {
-  font-size: 10px;
-}
-
-/* Contenedor del botón con posición relativa */
-        .btn-icono.notificacion {
-            position: relative;
-        }
-/* La burbuja de notificación */
-        .burbuja {
-            position: absolute;
-            top: 0;
-            right: 10px;
-            background-color: red;
-            color: white;
-            width: 14px;
-            height: 14px;
-            font-size: 10px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            animation: pulso 1.2s infinite;
-        }
-
-        /* Animación opcional */
-        @keyframes pulso {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.2);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
-
-
-a.btn-icono {
-  text-decoration: none;
-}
-
-.btn-icono {
-  background: none;
-  border: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;
-  cursor: pointer;
-}
-
-.btn-icono .icono {
-  filter: brightness(0) invert(1);
-  width: 24px;
-  height: 24px;
-
-}
-
-/*open camara*/
-.oculto {
-  display: none;
-}
-
-
-
-.discover-image {
-  width: 100%;
-  border-radius: 1px;
-  object-fit: cover;
-}
-
-/* General Styles */
-
-h1,
-h2,
-h3 {
-  margin: 0;
-  padding: 0;
-}
-
-
-.navbar h1 {
-  flex-grow: 1;
-  text-align: center;
-}
-
-.back-btn {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-/* Profile Section */
+/* Información detallada del perfil */
 .profile-container {
   padding: 20px;
 }
 
-/* Profile Info */
 .profile-info {
   display: flex;
   align-items: center;
@@ -284,9 +541,49 @@ h3 {
   margin-top: 10px;
 }
 
-/* Posts Section */
-.profile-posts h3 {
-  margin-bottom: 10px;
+/* ========================================
+   NAVEGACIÓN DE VIDEOS EN PERFIL
+   ======================================== */
+
+.nav-videos {
+  border-top: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid rgb(224, 224, 224);
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-videos button {
+  background-color: transparent;
+  border: none;
+  padding-top: 7px;
+  padding-bottom: 3px;
+}
+
+.nav-videos .activado {
+  border-bottom: 2px solid black;
+  width: 30px;
+}
+
+.nav-videos button img {
+  height: 18px;
+}
+
+/* ========================================
+   GRID DE POSTS/VIDEOS
+   ======================================== */
+
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+}
+
+main img {
+  width: 100%;
+  aspect-ratio: 9 / 16; /* Proporción vertical tipo TikTok */
+  object-fit: cover;
+  display: block;
+  border-radius: 1px;
 }
 
 .posts-container {
@@ -295,42 +592,203 @@ h3 {
   gap: 10px;
 }
 
-.post-img {
+.post-img,
+.discover-image {
   width: 100%;
-  height: auto;
-  border-radius: 10px;
+  border-radius: 1px;
   object-fit: cover;
 }
 
+.profile-posts h3 {
+  margin-bottom: 10px;
+}
 
+/* ========================================
+   FOOTER Y NAVEGACIÓN INFERIOR
+   ======================================== */
 
-/* Splash screen */
-#splash-screen {
-  background-color: black;
+footer {
   position: fixed;
-  z-index: 9999;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
+  bottom: 0;
+  background-color: #000000;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  padding: 3px 0;
+  z-index: 10;
 }
 
-#splash-screen .logo {
-  width: 150px;
-  animation: fadeIn 1.5s ease-in-out;
+footer button {
+  background-color: transparent;
+  border: none;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
+footer button img {
+  height: 22px;
+}
 
-  to {
-    opacity: 1;
+footer button p {
+  font-size: 10px;
+}
+
+/* Logo TikTok */
+.tiktok {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* ========================================
+   BOTONES Y ELEMENTOS INTERACTIVOS
+   ======================================== */
+
+/* Botones generales */
+button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
+
+.cerrar {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Botones con iconos */
+a.btn-icono,
+.btn-icono {
+  text-decoration: none;
+  color: white;
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.btn-icono .icono {
+  filter: brightness(0) invert(1);
+  width: 24px;
+  height: 24px;
+}
+
+/* ========================================
+   NOTIFICACIONES Y BURBUJAS
+   ======================================== */
+
+/* Contenedor de notificación */
+.btn-icono.notificacion {
+  position: relative;
+}
+
+.burbuja-container {
+  position: relative;
+}
+
+/* Burbuja de notificación */
+.burbuja {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  background-color: red;
+  color: white;
+  width: 14px;
+  height: 14px;
+  font-size: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  animation: pulso 1.2s infinite;
+}
+
+.badge-alert {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: red;
+  color: rgb(255, 0, 0);
+  font-size: 5px;
+  padding: 2px 5px;
+  border-radius: 50%;
+}
+
+/* Animación de pulso para notificaciones */
+@keyframes pulso {
+  0% {
     transform: scale(1);
   }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ========================================
+   ICONOS Y ELEMENTOS VISUALES
+   ======================================== */
+
+.icono-svg {
+  width: 2rem;
+  height: 2rem; /* Corregido: era 20rem */
+  fill: currentColor;
+  vertical-align: middle;
+  filter: invert();
+}
+
+/* ========================================
+   ESTADOS Y UTILIDADES
+   ======================================== */
+
+.oculto {
+  display: none;
+}
+
+.opaco {
+  opacity: 0.5 !important;
+}
+
+.loading {
+  padding: 20px;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  display: none;
+}
+
+/* ========================================
+   TÍTULOS Y ENCABEZADOS
+   ======================================== */
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar h1 {
+  flex-grow: 1;
+  text-align: center;
 }
