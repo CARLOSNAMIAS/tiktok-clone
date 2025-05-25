@@ -309,6 +309,141 @@
     </footer>
     <script src="script.js"></script>
 
+<<<<<<< HEAD
+=======
+
+    <script>
+
+        // Pantalla de carga
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                const splash = document.getElementById("splash-screen");
+                const topbar = document.getElementById("topbar");
+
+                splash.style.opacity = 0;
+                splash.style.transition = "opacity 0.5s ease-out";
+
+                setTimeout(() => {
+                    splash.style.display = "none";
+                    topbar.style.display = "flex"; // Mostrar barra superior
+                }, 500);
+            }, 2000); // 2 segundos
+        });
+
+
+        // Cargar videos desde la API de Pexels
+
+        const container = document.getElementById('video-feed');
+
+        const API_KEY = 'mfBKfkodYK7uJ6S6bmoNa7a5S257MmkIgHGdcOwKN7dH4RUFDvbhpR1Y'; // Coloca aquí tu API Key
+
+        // Puedes agregar más temas aquí:
+        const CATEGORÍAS = ['Space', 'city', 'News', 'sports', 'animals', 'travel', 'food', 'Education', 'technology', 'cars'];
+
+        const cargarVideos = (query) => {
+            const API_URL = `https://api.pexels.com/videos/search?query=${query}&per_page=4`;
+
+            fetch(API_URL, {
+                headers: {
+                    Authorization: API_KEY
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    data.videos.forEach(video => {
+                        const videoUrl = video.video_files.find(v => v.quality === "sd")?.link;
+                        if (!videoUrl) return;
+
+                        const videoWrapper = document.createElement('div');
+                        videoWrapper.classList.add('video-item');
+
+                        const videoElement = document.createElement('video');
+                        videoElement.src = videoUrl;
+                        videoElement.autoplay = false;
+                        videoElement.loop = true;
+                        videoElement.muted = true;
+                        videoElement.playsInline = true;
+
+                        videoWrapper.appendChild(videoElement);
+                        container.appendChild(videoWrapper);
+                    });
+
+                    // Después de cargar todos, observar los videos
+                    const videos = document.querySelectorAll('video');
+                    if (videos.length > 0) {
+                        videos[0].play();
+                    }
+
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.play();
+                            } else {
+                                entry.target.pause();
+                            }
+                        });
+                    }, { threshold: 0.7 });
+
+                    videos.forEach(video => observer.observe(video));
+                });
+        };
+
+        // Cargar videos de todas las categorías
+        CATEGORÍAS.forEach(cargarVideos);
+
+
+
+        // Mostrar/ocultar ventana de comentarios
+        function toggleComentarios() {
+            const ventana = document.getElementById('ventanaComentarios');
+
+            if (ventana.classList.contains('mostrar')) {
+                // Oculta con animación inversa
+                ventana.classList.remove('mostrar');
+                setTimeout(() => ventana.classList.add('oculto'), 300); // Espera a que termine la animación
+            } else {
+                ventana.classList.remove('oculto');
+                // Activa animación de entrada
+                setTimeout(() => ventana.classList.add('mostrar'), 10);
+            }
+        }
+
+
+        // Cerrar al hacer clic fuera
+        document.addEventListener('click', function (e) {
+            const ventana = document.getElementById('ventanaComentarios');
+            const boton = document.getElementById('btnComentarios');
+
+            if (!ventana.contains(e.target) && !boton.contains(e.target)) {
+                ventana.classList.remove('mostrar');
+                setTimeout(() => ventana.classList.add('oculto'), 300); // Espera que se oculte suavemente
+            }
+        });
+
+
+        // Agregar evento de clic a los botones de "me gusta"
+        // Like
+        document.querySelectorAll('.like-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const icon = btn.querySelector('i');
+                btn.classList.toggle('liked');
+                icon.classList.toggle('bi-heart');
+                icon.classList.toggle('bi-heart-fill');
+            });
+        });
+
+        // Dislike
+        document.querySelectorAll('.dislike-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const icon = btn.querySelector('i');
+                btn.classList.toggle('disliked');
+                icon.classList.toggle('bi-hand-thumbs-down');
+                icon.classList.toggle('bi-hand-thumbs-down-fill');
+            });
+        });
+
+    </script>
+>>>>>>> a9ba6c5eeb134b957f2747b1a59b86d40ee3313d
 </body>
 
 </html>
