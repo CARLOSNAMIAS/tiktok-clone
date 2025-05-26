@@ -1,8 +1,9 @@
 // ========================================
 // CONFIGURACIÓN Y VARIABLES GLOBALES
 // ========================================
+// Ya no necesitas definirla, ya está en config.js
+console.log("Mi API Key es:", API_KEY);
 
-const API_KEY = 'mfBKfkodYK7uJ6S6bmoNa7a5S257MmkIgHGdcOwKN7dH4RUFDvbhpR1Y';
 const container = document.getElementById('video-feed');
 
 // Categorías para variedad de contenido
@@ -413,3 +414,26 @@ function limpiarVideosLejanos() {
 
 // Ejecutar monitoreo cada 30 segundos
 setInterval(monitorerarPerformance, 30000);
+
+
+
+// ========================================
+// EVENTOS DE BOTONES GUARDADOS
+// ========================================
+
+function agregarFavorito() {
+    const noti = document.getElementById("notificacionFavorito");
+    noti.style.display = "block";
+    
+    // Reiniciar animación
+    noti.classList.remove("animando");
+    void noti.offsetWidth; // trigger reflow
+    noti.classList.add("animando");
+
+    // Ocultar después de 2 segundos
+    setTimeout(() => {
+        noti.style.display = "none";
+    }, 2000);
+}
+
+
