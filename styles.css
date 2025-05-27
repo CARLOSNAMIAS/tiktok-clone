@@ -109,6 +109,11 @@ body {
 }
 
 
+
+
+
+            
+
 .nav-textos a {
   margin-right: 10px;
   cursor: pointer;
@@ -221,13 +226,16 @@ body {
   color: rgb(255, 255, 255);
 }
 
+
+
+
 /* Contador de interacciones */
 .contador {
   font-size: 14px;
   color: white;
 }
 
-/* animación de guardar post */
+/* animación boton de  guardar post */
 .notificacion-tiktok {
   position: fixed;
   bottom: 100px;
@@ -263,6 +271,15 @@ body {
     transform: translateX(-50%) translateY(-20px);
   }
 }
+
+/* Botón de compartir */
+.icono-volteado {
+  transform: scaleX(-1); /* 🔁 Invierte horizontalmente el ícono de compartir*/
+  display: inline-block; /* ✅ Necesario para que transform funcione */
+}
+
+
+
 
 
 
@@ -502,6 +519,59 @@ body {
     transform: scale(1);
   }
 }
+
+
+
+/* ========================================
+   BARRA DE COMENTARIOS GENERAL
+   ======================================== */
+.barra-general-comentario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background-color: #ffffff00;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+.barra-general-comentario .avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.barra-general-comentario input {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+}
+
+.barra-general-comentario button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.barra-general-comentario button:hover {
+  color: #000;
+}
+
+
+
+
+
+
+
 
 /* ========================================
    SECCIÓN DE PERFIL DE USUARIO

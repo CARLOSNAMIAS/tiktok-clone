@@ -437,3 +437,29 @@ function agregarFavorito() {
 }
 
 
+
+
+
+// ========================================
+// EVENTOS OPEN BARRRA DE COMENTARIOS   
+// ========================================
+document.getElementById('enviarBtn').addEventListener('click', () => {
+        const input = document.getElementById('comentarioInput');
+        const texto = input.value.trim();
+        if (texto) {
+            alert(`Comentario enviado: ${texto}`);
+            input.value = '';
+        }
+    });
+
+    document.getElementById('emojiBtn').addEventListener('click', () => {
+        // Aquí podrías integrar una librería o solo agregar un emoji manualmente
+        const input = document.getElementById('comentarioInput');
+        input.value += '😊';
+        input.focus();
+    });
+
+
+
+
+

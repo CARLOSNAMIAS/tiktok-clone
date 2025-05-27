@@ -54,8 +54,9 @@
 
             <button class="boton-corazon">
                 <i class="bi bi-heart-fill"></i>
-                <span class="contador">120mil</span>
+                <span class="contador">8mil</span>
             </button>
+
             <!-- Botón de comentarios -->
             <button id="btnComentarios" onclick="toggleComentarios()">
                 <i class="bi bi-chat-dots-fill"></i>
@@ -70,13 +71,15 @@
             </button>
 
             <div id="notificacionFavorito" class="notificacion-tiktok">
-                Agregado a Favoritos ✅ Administrar >
+                ✅ Agregado a Favoritos - Administrar &gt;
             </div>
 
-            <button>
-                <i class="bi bi-arrow-90deg-right"></i>
-                <span class="contador">500</span>
+            <button class="boton-sidebar">
+                <i class="bi bi-reply-fill icono-volteado "></i>
+                <span class="contador">80</span>
             </button>
+
+
 
 
 
@@ -118,7 +121,7 @@
                                 <div class="comentario respuesta">
                                     <img class="avatar" src="https://i.pravatar.cc/40?img=32" alt="respuesta" />
                                     <div class="contenido-comentario">
-                                        <p><strong>@juan:</strong> ¡Totalmente de acuerdo contigo! 💪</p>
+                                        <p><strong>@luis:</strong> ¡Totalmente de acuerdo contigo! 💪</p>
                                     </div>
 
                                 </div>
@@ -267,17 +270,27 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
+
+                <!-- Barra general para agregar comentario -->
+                <div class="barra-general-comentario">
+                    <img class="avatar" src="./img/carlos.png" alt="mi-avatar" />
+                    <input type="text" id="comentarioInput" placeholder="Añadir un comentario..." />
+                    <button id="emojiBtn" title="Emojis">😊</button>
+                    <button id="enviarBtn" title="Enviar"><i class="bi bi-send-fill"></i></button>
+                </div>
+
+
+            </div>
         </div>
 
-
+        <!-- descripcion de video -->
 
 
         <div class="video-info">
             <strong>CarlosJosé😎</strong>
             <p class="hashtag">#travel✈️ 🛸#Clon/tiktok🔥 🧑🏽‍💻...más</p>
-            <p>🎵Music: Dj/13 Lorem ipsum dolor</p>
+            <p>🎵Music: Dj/13</p>
         </div>
 
 
@@ -301,6 +314,7 @@
         </button>
 
 
+
         <a href="#" class="btn-icono notificacion">
             <img src="img/inbox.svg" alt="Inbox" class="icono">
             <span class="burbuja">10</span>
@@ -314,10 +328,11 @@
     </footer>
 
 
+
     <script src="config.js"></script>
     <script src="script.js"></script>
 
-    
+
 </body>
 
 </html>
