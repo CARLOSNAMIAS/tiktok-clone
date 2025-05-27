@@ -356,7 +356,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  max-height: 50%;
+  max-height: 55%;
   background: #090909;
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;
@@ -464,7 +464,7 @@ body {
 .contenido-comentario p {
   margin: 0;
   font-size: 12px;
-  color: #fff;
+  color: #ffffff;
   text-align: justify;
   line-height: 1.4;
   word-break: break-word;
@@ -529,8 +529,8 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px;
-  border-top: 1px solid #ddd;
+  padding: 8px;
+  border-top: 1px solid #dddddd07;
   background-color: #ffffff00;
   position: sticky;
   bottom: 0;
@@ -548,9 +548,10 @@ body {
   flex: 1;
   padding: 8px 12px;
   border-radius: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #34343400;
   font-size: 14px;
   outline: none;
+  background-color: rgba(44, 44, 44, 0.744);
 }
 
 .barra-general-comentario button {
@@ -558,14 +559,31 @@ body {
   border: none;
   font-size: 20px;
   cursor: pointer;
-  color: #333;
+  color: #333333e8;
   transition: color 0.2s ease;
 }
 
 .barra-general-comentario button:hover {
-  color: #000;
+  color: #00000000;
 }
 
+/* ========================================
+   SECCIÓN DE EMOJIS
+   ======================================== */
+.emoji-row {
+  display: flex;
+  gap: 8px;              /* espacio entre emojis */
+  padding: 6px 0;
+  font-size: 24px;       /* tamaño de emojis */
+  cursor: pointer;       /* para que parezca clickeable */
+  user-select: none;     /* para que no se seleccionen al arrastrar */
+  justify-content: center;   /* 👉 centra horizontalmente */
+}
+
+.emoji-row:hover {
+  background-color: #f5f5f500;  /* un fondo suave cuando pases el mouse */
+  border-radius: 8px;
+}
 
 
 
