@@ -17,10 +17,10 @@ body {
   padding: 0;
   height: 100%;
   width: 100%;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 13px;
   background-color: #000000;
-  color: #fcfcfc;
+  color: #f3f3f3;
   overflow: auto;
 }
 
@@ -110,10 +110,6 @@ body {
 
 
 
-
-
-            
-
 .nav-textos a {
   margin-right: 10px;
   cursor: pointer;
@@ -145,15 +141,19 @@ body {
   height: 40px;
 }
 
+
+
+
 /* ========================================
    FEED DE VIDEOS PRINCIPAL
    ======================================== */
-
 #video-feed {
   height: 100vh;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+  transition: all 0.3s ease-in-out;
+  /* Transición suave */
 }
 
 /* Ocultar scrollbar para apariencia más limpia */
@@ -167,6 +167,8 @@ body {
   width: 100vw;
   scroll-snap-align: start;
   position: relative;
+  transition: all 0.3s ease-in-out;
+  /* Transición suave */
 }
 
 /* Elemento video dentro del contenedor */
@@ -175,6 +177,75 @@ body {
   width: 100%;
   object-fit: cover;
 }
+
+/* ========================================
+   EFECTO TIKTOK - VIDEO REDUCIDO AL 50%
+   ======================================== */
+
+/* Fondo oscuro para toda la pantalla cuando están activos los comentarios */
+body.comments-overlay::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+  z-index: 15;
+  transition: all 0.3s ease-in-out;
+}
+
+
+/* Cuando los comentarios están activos */
+.video-container.comments-active {
+  position: relative;
+  z-index: 20;
+
+}
+
+/* El video queda encima de los comentarios - CORREGIDO */
+#video-feed.video-reduced {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 55vw;
+  /* Aumentado ligeramente para mejor proporción */
+  height: 50vh;
+  /* Aumentado para mejor proporción */
+  border-radius: 1px;
+  /* Bordes redondeados como TikTok */
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0);
+  z-index: 30;
+  transition: all 0.3s ease-in-out;
+}
+
+
+/* Asegurar que los videos individuales mantengan su proporción */
+#video-feed.video-reduced .video-item {
+  height: 100%;
+  width: 100%;
+}
+
+
+/* Ocultar scroll cuando está reducido */
+#video-feed.video-reduced {
+   overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+/* Clase para ocultar el scroll del body */
+.oculto-scroll {
+  overflow: hidden;
+}
+
+
+
+
+
+
 
 /* ========================================
    BARRA LATERAL DE INTERACCIONES
@@ -274,12 +345,11 @@ body {
 
 /* Botón de compartir */
 .icono-volteado {
-  transform: scaleX(-1); /* 🔁 Invierte horizontalmente el ícono de compartir*/
-  display: inline-block; /* ✅ Necesario para que transform funcione */
+  transform: scaleX(-1);
+  /* 🔁 Invierte horizontalmente el ícono de compartir*/
+  display: inline-block;
+  /* ✅ Necesario para que transform funcione */
 }
-
-
-
 
 
 
@@ -401,7 +471,7 @@ body {
   border-bottom: 1px solid #00000000;
   padding: 10px 15px;
   border-radius: 15px;
-  
+
 }
 
 .titulo-comentarios {
@@ -553,13 +623,15 @@ body {
   font-size: 14px;
   outline: none;
   background-color: rgb(90, 90, 90);
- 
+
 }
 
 
 .comentario-input::placeholder {
-  color: #ffffff; /* o el color que desees */
-  opacity: 1;  /* algunos navegadores reducen la opacidad por defecto */
+  color: #ffffff;
+  /* o el color que desees */
+  opacity: 1;
+  /* algunos navegadores reducen la opacidad por defecto */
 }
 
 
@@ -582,18 +654,25 @@ body {
    ======================================== */
 .emoji-row {
   display: flex;
-  gap: 20px;         /* espacio entre emojis */
+  gap: 20px;
+  /* espacio entre emojis */
   padding: 6px;
-  font-size: 24px;       /* tamaño de emojis */
-  cursor: pointer;       /* para que parezca clickeable */
-  user-select: none;     /* para que no se seleccionen al arrastrar */
-  justify-content: center;   /* 👉 centra horizontalmente */
-  padding: 6px;         /* espacio alrededor de la fila */
- 
+  font-size: 24px;
+  /* tamaño de emojis */
+  cursor: pointer;
+  /* para que parezca clickeable */
+  user-select: none;
+  /* para que no se seleccionen al arrastrar */
+  justify-content: center;
+  /* 👉 centra horizontalmente */
+  padding: 6px;
+  /* espacio alrededor de la fila */
+
 }
 
 .emoji-row:hover {
-  background-color: #f5f5f500;  /* un fondo suave cuando pases el mouse */
+  background-color: #f5f5f500;
+  /* un fondo suave cuando pases el mouse */
   border-radius: 8px;
 }
 
