@@ -46,7 +46,7 @@
 
 
 
-    
+
     <!-- Pantalla de carga tipo TikTok -->
     <div id="splash-screen">
         <img src="img/logo-TKTK.png" alt="Logo TikTok" class="logo">
@@ -299,11 +299,18 @@
                 <!-- Barra general para agregar comentario -->
                 <div class="barra-general-comentario">
                     <img class="avatar" src="./img/carlos.png" alt="mi-avatar" />
-                    <input type="text" id="comentarioInput" class="comentario-input"
-                        placeholder="Añadir un comentario..." />
-                    <button id="emojiBtn" title="Emojis"></button>
-                    <button id="enviarBtn" title="Enviar"><i class="bi bi-send-fill"></i></button>
+
+                    <div class="input-con-iconos">
+                        <input type="text" placeholder="Agregar comentario..." />
+
+                        <div class="iconos-dentro-input">
+                            <i class="bi bi-at icono"></i>
+                            <i class="bi bi-emoji-laughing icono"></i>
+                            <i class="bi bi-image icono"></i>
+                        </div>
+                    </div>
                 </div>
+
 
 
             </div>

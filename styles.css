@@ -140,7 +140,7 @@ body {
   top: 35px;
   right: 20px;
   z-index: 60;
-  font-size: 24px;
+  font-size: 22px;
   color: white;
   cursor: pointer;
 }
@@ -154,7 +154,8 @@ body {
    ======================================== */
 #video-feed {
   height: 100vh;
-  width: 100vw; /* Añade este si no está */
+  width: 100vw;
+  /* Añade este si no está */
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
@@ -227,7 +228,8 @@ body.comments-overlay::before {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0);
   z-index: 30;
   transition: all 0.3s ease-in-out;
-  background-color: rgba(0, 0, 0, 0.7); /* <- Aquí se agrega el color de fondo */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* <- Aquí se agrega el color de fondo */
 }
 
 
@@ -240,7 +242,7 @@ body.comments-overlay::before {
 
 /* Ocultar scroll cuando está reducido */
 #video-feed.video-reduced {
-   overflow-y: scroll;
+  overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
@@ -597,45 +599,24 @@ body.comments-overlay::before {
 }
 
 
-
 /* ========================================
    BARRA DE COMENTARIOS GENERAL
    ======================================== */
+
 .barra-general-comentario {
   display: flex;
   align-items: center;
-  gap: 10px;
   padding: 8px;
-  border-top: 1px solid #07070700;
   background-color: #0e0e0e;
-  position: sticky;
-  bottom: 0;
-  z-index: 10;
+  border-top: 1px solid #33333300;
 }
 
 .barra-general-comentario .avatar {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   object-fit: cover;
-}
-
-.barra-general-comentario input {
-  flex: 1;
-  padding: 8px 12px;
-  border-radius: 20px;
-  border: 1px solid #515151fa;
-  font-size: 14px;
-  outline: none;
-  background-color: rgb(90, 90, 90);
-
-}
-
-.comentario-input::placeholder {
-  color: #ffffff;
-  /* o el color que desees */
-  opacity: 1;
-  /* algunos navegadores reducen la opacidad por defecto */
+  margin-right: 10px; /* 👈 espacio entre el avatar y el input */
 }
 
 .barra-general-comentario button {
@@ -643,7 +624,7 @@ body.comments-overlay::before {
   border: none;
   font-size: 20px;
   cursor: pointer;
-  color: #5e5e5eab;
+  color: #181818;
   transition: color 0.2s ease;
 }
 
@@ -652,29 +633,100 @@ body.comments-overlay::before {
 }
 
 /* ========================================
+   INPUT CON ÍCONOS DENTRO
+   ======================================== */
+
+.input-con-iconos {
+  position: relative;
+  flex: 1;
+  
+
+}
+
+.input-con-iconos input {
+  width: 100%;
+  padding: 8px 90px 8px 10px;
+  /* espacio a la derecha para los íconos */
+  background-color: #4e4e4e;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 13px;
+  outline: none;
+}
+
+.iconos-dentro-input {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 9px;
+}
+
+
+
+
+.input-con-iconos input::placeholder {
+  color: #bdbdbd;
+  opacity: 1;
+  
+}
+
+
+/* ========================================
+   ÍCONOS EN GENERAL
+   ======================================== */
+
+.icono {
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: transform 0.2s ease;
+}
+
+.icono:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+/* ========================================
+   PLACEHOLDER DEL INPUT
+   ======================================== */
+
+.comentario-input::placeholder {
+  color: #ffffff;
+  opacity: 1;
+  /* algunos navegadores reducen la opacidad por defecto */
+}
+
+/* ========================================
+   ÍCONOS FUERA DEL INPUT (si se usan)
+   ======================================== */
+
+.iconos-comentario {
+  display: flex;
+  gap: 9px;
+  margin-left: 7px;
+}
+
+/* ========================================
    SECCIÓN DE EMOJIS
    ======================================== */
+
 .emoji-row {
   display: flex;
   gap: 20px;
-  /* espacio entre emojis */
   padding: 6px;
   font-size: 24px;
-  /* tamaño de emojis */
   cursor: pointer;
-  /* para que parezca clickeable */
   user-select: none;
-  /* para que no se seleccionen al arrastrar */
   justify-content: center;
-  /* 👉 centra horizontalmente */
-  padding: 6px;
-  /* espacio alrededor de la fila */
-
 }
 
 .emoji-row:hover {
   background-color: #f5f5f500;
-  /* un fondo suave cuando pases el mouse */
   border-radius: 8px;
 }
 
@@ -1026,6 +1078,3 @@ h3 {
   flex-grow: 1;
   text-align: center;
 }
-
-
-
