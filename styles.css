@@ -541,14 +541,12 @@ body.comments-overlay::before {
 
 .contenido-comentario p {
   margin: 0;
-  font-size: 12px;
+  font-size: 15px;
   color: #ffffff;
   text-align: justify;
-  line-height: 1.4;
+  line-height: 1.2;
   word-break: break-word;
 }
-
-
 
 
 /* Sección de reacciones */
@@ -570,21 +568,25 @@ body.comments-overlay::before {
 
 .botones-derecha {
   display: flex;
-  gap: 32px;
+  gap: 30px; /* 👉 espacio entre los botones de reacciones */
   align-items: center;
 }
 
 .like-btn,
 .dislike-btn {
-
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  gap: 10px;
   background: none;
   border: none;
   cursor: pointer;
   color: #414141;
   transition: color 0.2s ease;
-  font-size: 14px;
+  font-size: 16px;
 }
+
+
 
 
 
@@ -622,6 +624,7 @@ body.comments-overlay::before {
     transform: scale(1);
   }
 }
+
 
 
 /* ========================================
