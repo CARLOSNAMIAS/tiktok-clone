@@ -22,6 +22,7 @@ body {
   background-color: #000000;
   color: #fefefe;
   overflow: auto;
+
 }
 
 /* ========================================
@@ -105,6 +106,14 @@ body {
   vertical-align: middle;
   filter: invert();
   /* Invierte los colores para que se vean bien en fondo oscuro */
+   
+}
+
+
+.activo .icono-svg {
+  filter: invert() drop-shadow(0 2px 4px rgba(45, 45, 45, 0.959));
+  transform: scale(1.1);
+  transition: all 0.3s ease;
 }
 
 
@@ -551,7 +560,7 @@ body.comments-overlay::before {
 
 .contenido-comentario p strong {
   text-shadow: 1px 1px 3px rgba(102, 102, 102, 0.11); /* 👉 sombra sutil */
-  color: #737373; /* Asegúrate que el nombre destaque */
+  color: #8b8b8b; /* Asegúrate que el nombre destaque */
   font-weight: bold; /* Acentuar más */
 }
 
@@ -599,7 +608,7 @@ body.comments-overlay::before {
 
 .like-btn i,
 .dislike-btn i {
-  font-size: 12px;
+  font-size: 15px;
   transition: color 0.3s;
 }
 
@@ -732,7 +741,7 @@ body.comments-overlay::before {
   color: #ffffff;
   opacity: 1;
 
-  /* algunos navegadores reducen la opacidad por defecto */
+  
 }
 
 /* ========================================
@@ -937,6 +946,8 @@ footer {
   align-items: center;
   padding: 3px 0;
   z-index: 10;
+  height: 60px;
+  
 }
 
 footer button {
@@ -951,6 +962,7 @@ footer button img {
 footer button p {
   font-size: 10px;
 }
+
 
 /* Logo TikTok */
 .tiktok {
