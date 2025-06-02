@@ -90,7 +90,7 @@ body {
 .nav-textos {
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: 5px;
   /* Espacio más consistente entre enlaces */
   font-size: 14px;
 }
@@ -119,7 +119,7 @@ body {
 
 
 .nav-textos a {
-  margin-right: 10px;
+  margin-right: 14px;
   cursor: pointer;
   font-size: 16px;
   opacity: 1;
@@ -274,7 +274,7 @@ body.comments-overlay::before {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 13px;
+  gap: 10px;
   /* Espacio más consistente */
   z-index: 999;
 }

@@ -7,7 +7,7 @@ console.log("Mi API Key es:", API_KEY);
 const container = document.getElementById('video-feed');
 
 // Categorías para variedad de contenido
-const CATEGORÍAS = ['ferrari','live concert','beach','nasa','bikes honda'];
+const CATEGORÍAS = ['ferrari','nasa 2020','lamborghini 2020','live concert','beach','bikes honda'];
 
 // Control de carga y estado
 let currentCategoryIndex = 0;
