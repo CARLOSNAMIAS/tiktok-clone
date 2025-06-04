@@ -7,7 +7,7 @@ console.log("Mi API Key es:", API_KEY);
 const container = document.getElementById('video-feed');
 
 // Categorías para variedad de contenido
-const CATEGORÍAS = ['ferrari','nasa 2020','lamborghini 2020','live concert','beach','bikes honda'];
+const CATEGORÍAS = ['BMW 2023','nasa 2020','ferrari','live concert','beach','bikes honda','cars 2023', 'space exploration', 'nature', 'technology', 'sports', 'travel', 'food', 'animals'];
 
 // Control de carga y estado
 let currentCategoryIndex = 0;
@@ -15,6 +15,11 @@ let currentPage = 1;
 let isLoading = false;
 let videosCache = [];
 let observer;
+
+// Función para obtener una categoría aleatoria
+function obtenerCategoriaAleatoria() {
+    return CATEGORÍAS[Math.floor(Math.random() * CATEGORÍAS.length)];
+}
 
 // Configuración de calidad adaptativa
 const QUALITY_CONFIG = {
@@ -89,8 +94,8 @@ async function cargarVideosIniciales() {
     isLoading = true;
 
     try {
-        // Cargar solo de la primera categoría inicialmente
-        const category = CATEGORÍAS[currentCategoryIndex];
+        // Cargar de una categoría aleatoria inicialmente
+        const category = obtenerCategoriaAleatoria();
         await cargarVideosPorCategoria(category, 3); // Solo 3 videos iniciales
 
         // Precargar discretamente algunos más en background
@@ -277,11 +282,8 @@ async function cargarMasVideos() {
     isLoading = true;
 
     try {
-        // Alternar entre categorías para variedad
-        currentCategoryIndex = (currentCategoryIndex + 1) % CATEGORÍAS.length;
-        if (currentCategoryIndex === 0) currentPage++;
-
-        const category = CATEGORÍAS[currentCategoryIndex];
+        // CAMBIO: Usar categoría aleatoria en lugar de secuencial
+        const category = obtenerCategoriaAleatoria();
         await cargarVideosPorCategoria(category, 2); // Solo 2 videos por batch
 
         // Reconfigurar observers para nuevos videos
@@ -298,7 +300,8 @@ async function precargarSiguientesVideos() {
     // Precargar discretamente en background
     if (isLoading) return;
 
-    const nextCategory = CATEGORÍAS[(currentCategoryIndex + 1) % CATEGORÍAS.length];
+    // CAMBIO: También usar categoría aleatoria para precargar
+    const nextCategory = obtenerCategoriaAleatoria();
     await cargarVideosPorCategoria(nextCategory, 2);
     aplicarObserversAVideos();
 }

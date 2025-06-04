@@ -651,7 +651,7 @@ body.comments-overlay::before {
 .barra-general-comentario {
   display: flex;
   align-items: center;
-  padding: 8px;
+  padding: 7px;
   background-color: #0e0e0e;
   border-top: 1px solid #33333300;
 }
@@ -696,7 +696,7 @@ body.comments-overlay::before {
   border: none;
   border-radius: 21px;
   color: white;
-  font-size: 18px;
+  font-size: 16px;
   outline: none;
 }
 
@@ -715,7 +715,7 @@ body.comments-overlay::before {
 .input-con-iconos input::placeholder {
   color: #bdbdbd;
   opacity: 1;
-  font-size: 17px;
+  font-size: 15px;
 }
 
 
