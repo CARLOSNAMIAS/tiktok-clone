@@ -7,7 +7,11 @@ console.log("Mi API Key es:", API_KEY);
 const container = document.getElementById('video-feed');
 
 // Categorías para variedad de contenido
+<<<<<<< HEAD
 const CATEGORÍAS = ['BMW 2023','nasa 2020','ferrari','live concert','beach','bikes honda','space exploration','technology', 'sports', 'travel',];
+=======
+const CATEGORÍAS = ['BMW 2024','nasa 2020','ferrari','live concert','beach','bikes honda','lamborghini', 'space', 'travel','F1 2023'];
+>>>>>>> 16932db (mas categorias videos)
 
 // Control de carga y estado
 let currentCategoryIndex = 0;

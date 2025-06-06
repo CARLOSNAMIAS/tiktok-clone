@@ -21,9 +21,12 @@ body {
   font-size: 13px;
   background-color: #000000;
   color: #fefefe;
-  overflow: auto;
+  overflow-x: hidden;   /* 👈 evita scroll lateral */
+  overflow-y: auto;     /* 👈 permite scroll vertical */
 
 }
+
+
 
 /* ========================================
    PANTALLA DE SPLASH (CARGA)
@@ -76,7 +79,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 14px;
-  z-index: 10000;
+  z-index: 1000;
   color: rgb(250, 250, 250);
   font-family: sans-serif;
 }
@@ -274,7 +277,7 @@ body.comments-overlay::before {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   /* Espacio más consistente */
   z-index: 999;
 }
@@ -305,7 +308,7 @@ body.comments-overlay::before {
 
 /* Iconos en sidebar */
 .sidebar i {
-  font-size: 24px;
+  font-size: 28px;
   margin-bottom: 4px;
 }
 
@@ -433,7 +436,7 @@ body.comments-overlay::before {
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  box-shadow: 0 0 6px red;
+  
 }
 
 /* ========================================
@@ -969,7 +972,7 @@ footer button p {
 
 /* Logo TikTok */
 .tiktok {
-  height: 50px;
+  height: 55px;
   width: auto;
   object-fit: contain;
   display: block;
