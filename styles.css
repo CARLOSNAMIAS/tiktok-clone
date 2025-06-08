@@ -43,7 +43,7 @@ body {
 }
 
 #splash-screen .logo {
-  width: 100px;
+  width: 114px;
   animation: fadeIn 1.5s ease-in-out;
 }
 
@@ -75,7 +75,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 14px;
+  padding: 0 15px;
   z-index: 10000;
   color: rgb(250, 250, 250);
   font-family: sans-serif;
@@ -106,7 +106,7 @@ body {
   vertical-align: middle;
   filter: invert();
   /* Invierte los colores para que se vean bien en fondo oscuro */
-   
+
 }
 
 
@@ -152,6 +152,7 @@ body {
   font-size: 22px;
   color: white;
   cursor: pointer;
+  font-weight: bold;
 }
 
 
@@ -225,22 +226,29 @@ body.comments-overlay::before {
 #video-feed.video-reduced {
   position: fixed;
   top: 20%;
+  /* Debajo del header */
   left: 50%;
+  /* Pegado al borde derecho */
   transform: translate(-50%, -50%);
-  width: 55vw;
-  /* Aumentado ligeramente para mejor proporción */
-  height: 50vh;
-  /* Aumentado para mejor proporción */
-  border-radius: 1px;
-  /* Bordes redondeados como TikTok */
+  /* centrado */
+  width: 200px;
+  /* Ancho fijo pequeño */
+  height: 320px;
+  /* Alto manteniendo proporción 9:16 */
+  border-radius: 8px;
+  /* Bordes ligeramente redondeados */
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0);
-  z-index: 30;
-  transition: all 0.3s ease-in-out;
-  background-color: rgba(0, 0, 0, 0.7);
-  /* <- Aquí se agrega el color de fondo */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  /* Sombra sutil */
+  z-index: 999;
+  /* Z-index muy alto */
+  transition: all 0.1s ease-out;
+  /* Más rápido */
+  background-color: #000;
+  /* Fondo negro sólido */
+  border: none;
+  /* Sin borde */
 }
-
 
 /* Asegurar que los videos individuales mantengan su proporción */
 #video-feed.video-reduced .video-item {
@@ -274,7 +282,7 @@ body.comments-overlay::before {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
   /* Espacio más consistente */
   z-index: 999;
 }
@@ -305,7 +313,7 @@ body.comments-overlay::before {
 
 /* Iconos en sidebar */
 .sidebar i {
-  font-size: 24px;
+  font-size: 30px;
   margin-bottom: 4px;
 }
 
@@ -386,16 +394,18 @@ body.comments-overlay::before {
   color: white;
   font-weight: bold;
   padding: 2px 0;
- 
+
 }
 
 .video-info p {
   font-size: 14px;
   color: #ffffff;
-  margin: 2; /* 👈 Elimina margen extra */
+  margin: 2;
+  /* 👈 Elimina margen extra */
   padding: 2px 0;
   word-break: break-word;
 }
+
 .hashtag {
   color: #ffffff;
 }
@@ -562,9 +572,12 @@ body.comments-overlay::before {
 }
 
 .contenido-comentario p strong {
-  text-shadow: 1px 1px 3px rgba(102, 102, 102, 0.11); /* 👉 sombra sutil */
-  color: #8b8b8b; /* Asegúrate que el nombre destaque */
-  font-weight: bold; /* Acentuar más */
+  text-shadow: 1px 1px 3px rgba(102, 102, 102, 0.11);
+  /* 👉 sombra sutil */
+  color: #8b8b8b;
+  /* Asegúrate que el nombre destaque */
+  font-weight: bold;
+  /* Acentuar más */
 }
 
 /* Sección de reacciones */
@@ -586,7 +599,8 @@ body.comments-overlay::before {
 
 .botones-derecha {
   display: flex;
-  gap: 35px; /* 👉 espacio entre los botones de reacciones */
+  gap: 35px;
+  /* 👉 espacio entre los botones de reacciones */
   align-items: center;
 }
 
@@ -744,7 +758,7 @@ body.comments-overlay::before {
   color: #ffffff;
   opacity: 1;
 
-  
+
 }
 
 /* ========================================
@@ -950,7 +964,7 @@ footer {
   padding: 3px 0;
   z-index: 10;
   height: 60px;
-  
+
 }
 
 footer button {
@@ -969,11 +983,12 @@ footer button p {
 
 /* Logo TikTok */
 .tiktok {
-  height: 50px;
+  height: 60px;
   width: auto;
   object-fit: contain;
   display: block;
-  margin-top: -10px; /* Mueve hacia abajo */
+  margin-top: -10px;
+  /* Mueve hacia abajo */
 }
 
 /* ========================================
